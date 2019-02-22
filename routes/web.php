@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	
+    return view('layouts.listaClientes');
 });
+Route::get('/cliente', function () {
+	
+    return view('layouts.listaDetalleClientes');
+});
+Route::get('/cliente/detalle', function () {
+	
+    return view('layouts.listaDetalleVentas');
+});
+
+/*Para usar cualquier metodo HTTP
+Route::any('/', function()
+{
+    return '¡Hola mundo!';
+});*/
