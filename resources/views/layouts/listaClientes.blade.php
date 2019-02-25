@@ -15,6 +15,9 @@
                 <th>Nombre</th>
                 <th>CIF/NIF</th>
                 <th>Codigo Postal</th>
+                <tr><td>
+                    @yield('listadoClientes')
+                </td></tr>
             </table>
         </div>
         <div class="col-md-1"></div>
