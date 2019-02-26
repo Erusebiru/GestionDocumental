@@ -18,7 +18,7 @@
             </table>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-3"> 
+        <div class="col-md-3"  id="errores">
             @include('components.errores')
         </div>
     </div>

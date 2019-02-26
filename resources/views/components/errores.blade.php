@@ -1,1 +1,1 @@
-<button onclick=generarErrores()"></button><!--Aqui apareceran los errores-->
+<button onclick="generarErrores('hola')">Generar Error</button><!--Aqui apareceran los errores-->
