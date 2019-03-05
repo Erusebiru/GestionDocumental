@@ -1,3 +1,1 @@
-<div class="col-md-3">
-    <!--Aqui apareceran los errores-->
-</div>
+<button onclick="generarErrores('hola')">Generar Error</button><!--Aqui apareceran los errores-->
