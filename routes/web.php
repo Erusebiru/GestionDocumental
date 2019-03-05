@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'ClientesController@getClientes');
+
+Route::get('/create', function () {
 	
-    return view('layouts.listaClientes');
+    return view('layouts.nuevoCliente');
 });
+
+Route::post('/guardarCliente', 'ClientesController@guardarCliente');
+
 Route::get('/cliente', function () {
 	
     return view('layouts.listaDetalleClientes');

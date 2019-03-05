@@ -11,16 +11,17 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <table>
+            <table name="listadeclientes">
                 <th>Nombre</th>
                 <th>CIF/NIF</th>
                 <th>Codigo Postal</th>
-                <tr><td>
-                    @yield('listadoClientes')
-                </td></tr>
+                @include('data.listadoClientes')
             </table>
         </div>
         <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <a type="button" class="btn" href="{{ URL::to('/create') }}">Nuevo Cliente</a>
+        </div>
         @include('components.errores')
     </div>
 </div>
