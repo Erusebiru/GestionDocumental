@@ -29,5 +29,10 @@ class ClientesController extends Controller
 
             $clientes = DB::table('clientes')->select('Nombre','NIF_CIF','CP')->get();
     	    return view("layouts.listaClientes", compact('clientes'));
+    }
+    
+    public function pruebaClientes(){
+		$clientes = DB::table('clientes')->select('Nombre', 'NIF_CIF', 'CP')->get();
+    	return view("listadoClientes", compact('clientes'));
 	}
 }
