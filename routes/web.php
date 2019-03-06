@@ -13,6 +13,8 @@
 
 Route::get('/', 'ClientesController@getClientes');
 
+Route::get('/cliente/{id}','ClientesController@getCliente');
+
 Route::get('/create', function () {
 	
     return view('layouts.nuevoCliente');

@@ -10,8 +10,13 @@
         <h2>Detalle<!-- Pasar por POST el nombre del cliente--></h2>
     </div>
     <div class="row">
+        <div class="col-md-12" id="formulario">
+        @include('components.formulario')
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8">
-            <table>
+            <table id="ventas">
                 <th>ID</th>
                 <th>Fecha de creacion</th>
                 <th>Estado</th>

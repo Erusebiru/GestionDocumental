@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use App\Cliente;
+use App\Venta;
 use DB;
  
 class ClientesController extends Controller
@@ -29,5 +30,14 @@ class ClientesController extends Controller
 
             $clientes = DB::table('clientes')->select('Nombre','NIF_CIF','CP')->get();
     	    return view("layouts.listaClientes", compact('clientes'));
-	}
+    }
+
+    public function getCliente($id){
+        $cliente = Cliente::where('Id_cliente',$id)->get(['Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
+        $venta = Venta::where('Cliente',$id)->get(['Id_venta','Fecha_venta','Estado']);
+        return view("layouts.listaDetalleClientes", compact('cliente','venta'));
+    }
+    public function guardarCambios(){
+        
+    }
 }
