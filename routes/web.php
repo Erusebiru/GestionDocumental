@@ -15,6 +15,8 @@ Route::get('/', 'ClientesController@getClientes');
 
 Route::get('/cliente/{id}','ClientesController@getCliente');
 
+Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');
+
 Route::get('/create', function () {
 	
     return view('layouts.nuevoCliente');

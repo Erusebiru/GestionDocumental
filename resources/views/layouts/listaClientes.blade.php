@@ -20,9 +20,16 @@
         </div>
         <div class="col-md-1"></div>
 
-        <div class="col-md-2">
-            <a type="button" class="btn" href="{{ URL::to('/create') }}">Nuevo Cliente</a>
+        <div class="col-md-3"  id="errores">
+            @include('components.errores')
         </div>
 
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="container">
+                <a type="button" class="btn" href="{{ URL::to('/create') }}">Nuevo Cliente</a>
+            </div>
+        </div>
     </div>
 </div>
