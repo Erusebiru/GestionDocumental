@@ -1,0 +1,7 @@
+Ruben
+
+    Al principio del sprint estaba bastante liado por Laravel y su organizacion de archivos y gaste mas tiempo del que pensaba en algunas
+    cosas, ya que hasta el momento la estructura del programa la definia yo junto a mis compañeros y en su mayoria sabia donde estaba todo,
+    en cambio con la Laravel al darte una estructura propia me perdia bastante el donde tenia que colocar cada parte de la aplicacion.
+    Cierto que hicimos un pequeño tutorial antes, pero creo que en el momento que tienes que hacerlo por ti mismo sin una guia es cuando mas 
+    claro te quedan las cosas y es algo en lo que noto que he mejorado durante este sprint.
