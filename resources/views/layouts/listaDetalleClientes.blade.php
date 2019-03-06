@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <table>
+            <table id="ventas">
                 <th>ID</th>
                 <th>Fecha de creacion</th>
                 <th>Estado</th>
@@ -20,6 +20,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-3"  id="errores">
             @include('components.errores')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="formulario">
+        @include('components.formulario')
         </div>
     </div>
 </div>
