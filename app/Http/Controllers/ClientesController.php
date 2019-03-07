@@ -11,7 +11,7 @@ class ClientesController extends Controller
 {
 
     public function getClientes(){
-		$clientes = DB::table('clientes')->select('Nombre','NIF_CIF','CP')->get();
+		$clientes = DB::table('clientes')->select('Id_cliente', 'Nombre','NIF_CIF','CP')->get();
     	return view("layouts.listaClientes", compact('clientes'));
     }
     
@@ -31,10 +31,7 @@ class ClientesController extends Controller
             $clientes = DB::table('clientes')->select('Nombre','NIF_CIF','CP')->get();
     	    return view("layouts.listaClientes", compact('clientes'));
     }
-    public function pruebaClientes(){
-		$clientes = DB::table('clientes')->select('Nombre', 'NIF_CIF', 'CP')->get();
-    	return view("listadoClientes", compact('clientes'));
-	}
+    
 
     public function getCliente($id){
         $cliente = Cliente::where('Id_cliente',$id)->get(['Id_cliente','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);

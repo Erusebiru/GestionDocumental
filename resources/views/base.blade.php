@@ -6,6 +6,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<script type="text/javascript" src="{{ asset('js/generarErrores.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
 </head>
 <body>
 </body>

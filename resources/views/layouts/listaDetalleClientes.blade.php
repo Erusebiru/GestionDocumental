@@ -11,11 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <table id="ventas">
-                <th>ID</th>
-                <th>Fecha de creacion</th>
-                <th>Estado</th>
-            </table>
+            @include('data.listadoVentaCliente')
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-3"  id="errores">
