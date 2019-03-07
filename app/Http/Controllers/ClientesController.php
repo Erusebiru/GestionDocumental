@@ -38,17 +38,17 @@ class ClientesController extends Controller
         $venta = Venta::where('Cliente',$id)->get(['Id_venta','Fecha_venta','Estado']);
         return view("layouts.listaDetalleClientes", compact('cliente','venta'));
     }
-    public function guardarCambios(Request $request,$id){
-        $cliente = Cliente::where('Id_cliente',$id)->get(['Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
-        $cliente->Nombre = $request->input('Nombre');
-        $cliente->Email = $request->input('Email',false);
-        $cliente->NIF_CIF = $request->input('NIF_CIF',false);
-        $cliente->Telefono = (int)$request->input('Telefono',false);
-        $cliente->Direccion = $request->input('Direccion');
-        $cliente->Localidad = $request->input('Localidad');
-        $cliente->CP = (int)$request->input('CP');
-        $cliente->Provincia = $request->input('Provincia');
-        $cliente->save();
+    public function guardarCambios(Request $request, $id){
+        Cliente::where('Id_cliente',$id)
+        ->update([
+        'Nombre' => $request->input('Nombre'),
+        'Email' => $request->input('Email',false),
+        'NIF_CIF' => $request->input('NIF_CIF',false),
+        'Telefono' => (int)$request->input('Telefono',false),
+        'Direccion' => $request->input('Direccion'),
+        'Localidad' => $request->input('Localidad'),
+        'CP' => (int)$request->input('CP'),
+        'Provincia' => $request->input('Provincia')]);
         return redirect()->back();
     }
 }

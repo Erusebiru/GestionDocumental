@@ -35,11 +35,9 @@
                 $(form).append(linia);
             }
         }
-       
     }
     var boton = $("<button>").text("Guardar cambios");
     $(form).append(boton);
     $("#formulario").append(form);
-
 }
 </script>
