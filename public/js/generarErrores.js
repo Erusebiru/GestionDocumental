@@ -1,7 +1,7 @@
 
 
 function tiempoErrores(){
-	setTimeout(eliminarErrores,5000);
+	setTimeout(eliminarErrores,10000);
 }
 
 function eliminarErrores(){

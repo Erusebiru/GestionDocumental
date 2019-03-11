@@ -1,3 +1,5 @@
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
+
 @extends('base')
 @include('components.user')
 <div class="container">
@@ -8,8 +10,8 @@
         <h2>Nuevo Cliente</h2>
     </div>
     <div class="row">
-        <div class="col-md-10 col-lg-10">
-            <form method="post" name=form id=form action="{{action('ClientesController@guardarCliente')}}">
+        <div class="col-md-7 col-lg-7">
+            <form method="post" name="form" id="formCliente" action="{{action('ClientesController@guardarCliente')}}">
 
                 {{ csrf_field() }}
                 <div class="row">
@@ -50,27 +52,31 @@
                         <input type="text" class="form-control" name="provincia" id="provincia">
                     </div>
                 </div>
-               
+            </form>
                 <div class="row">
-
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <a type="button" class="btn btn-dark" href="{{ URL::to('/') }}">Cancelar</a>
-
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    <div class="col-md-3 text-right">
+                        <button onclick="validarFormulario()" class="btn btn-dark">Guardar</button>
                     </div>
                 </div>
-            </form>
+            
+            </div>
+            <div class="col-md-3"  id="errores">
+            @include('components.errores')
+            </div>
         </div>
+        
+    </div>
+    
+    <script type="text/javascript">
+    function validarFormulario(){
+        if (validarCliente()==true){
+            $("#formCliente").submit();
+        }
+    }
+    </script>
 
-        <div class="col-md-1 col-lg-1"></div> 
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(function() {
-			checkForm("#form");
-		});
-	</script>
 </body>
 </html>

@@ -22,6 +22,12 @@ Route::get('/create', function () {
     return view('layouts.nuevoCliente');
 });
 
+Route::get('/error', function () {
+	
+    return view('layouts.error');
+});
+
+
 Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
 Route::get('/cliente', function () {
