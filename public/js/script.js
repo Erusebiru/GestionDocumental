@@ -61,77 +61,77 @@ function visualizarDatos2(nombreColumnas, padre, listaDatos, iconos){
 // Funcion para validar el formulario
 function validarCliente(){
     
-    if (($("#nombre").val())=="" || ($("#nombre").val())=="undefined"){
+    if (($("#Nombre").val())=="" || ($("#Nombre").val())=="undefined"){
         generarErrores("El campo nombre es obligatorio.")
         return false;
     }
-    if (!($("#nombre").val().match("^[a-zç A-ZÇ À-ú]{3,30}$"))){
+    if (!($("#Nombre").val().match("^[a-zç A-ZÇ À-ú]{3,30}$"))){
         generarErrores("Introduzca un nombre correcto.")
         return false;      
     }
         
-    if (($("#email").val())=="" || ($("#email").val())=="undefined") {
+    if (($("#Email").val())=="" || ($("#Email").val())=="undefined") {
         generarErrores("El campo email es obligatorio.")
         return false;
     }
-    if(!($("#email").val().match("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"))){
+    if(!($("#Email").val().match("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"))){
         generarErrores("Introduzca un email correcto. (correo@ejemplo.com)")
         return false;
     }
     
-    if ($("#nifcif").val()=="" && $("#nifcif").val()==undefined){
+    if ($("#NIF_CIF").val()=="" && $("#NIF_CIF").val()==undefined){
         generarErrores("El campo DNI-NIF-CIF es obligatorio.")
         return false;
     }
 
-    var documento = $("#nifcif").val();
+    var documento = $("#NIF_CIF").val();
 
     if (!(validarCIFoDNI(documento))){
         generarErrores("Introduzca un DNI, NIF o CIF válido (Debe introducirse sin guión ni separación)")
         return false;        
     }
     
-    if (($("#telefono").val())=="" || ($("#telefono").val())=="undefined"){
+    if (($("#Telefono").val())=="" || ($("#Telefono").val())=="undefined"){
         generarErrores("El campo telefono es obligatorio.")
         return false;
     }
-    if (!($("#telefono").val().match("^[0-9]{9}$"))){
+    if (!($("#Telefono").val().match("^[0-9]{9}$"))){
         generarErrores("Introduzca un número de teléfono correcto. (9 dígitos)")
         return false;
     }
     
-    if(($("#direccion").val())=="" || ($("#direccion").val())=="undefined"){
+    if(($("#Direccion").val())=="" || ($("#Direccion").val())=="undefined"){
         generarErrores("El campo direccion es obligatorio.")
         return false;
     }
-    if (!($("#direccion").val().match("^[a-zç A-ZÇ À-ú0-9',.]{5,100}$"))){
+    if (!($("#Direccion").val().match("^[a-zç A-ZÇ À-ú0-9',.]{5,100}$"))){
         generarErrores("Introduzca una dirección válida.")
         return false;
     }
 
-    if (($("#localidad").val())=="" || ($("#localidad").val())=="undefined"){
+    if (($("#Localidad").val())=="" || ($("#Localidad").val())=="undefined"){
         generarErrores("El campo localidad es obligatorio.")
         return false;
     }
-    if (!($("#localidad").val().match("^[a-zç A-ZÇ À-ú]{3,30}$"))){
+    if (!($("#Localidad").val().match("^[a-zç A-ZÇ À-ú]{3,30}$"))){
         generarErrores("Introduzca una localidad válida.")
         return false;
     }
     
-    if (($("#cp").val())=="" || ($("#cp").val())=="undefined"){
+    if (($("#CP").val())=="" || ($("#CP").val())=="undefined"){
         generarErrores("El campo cp es obligatorio.")
         return false;
     }
-    if (!($("#cp").val().match("^[0-9]{5}$"))){
+    if (!($("#CP").val().match("^[0-9]{5}$"))){
         generarErrores("Introduzca un Codigo Postal válido. (5 dígitos)")
         return false;
     }
 
-    if (($("#provincia").val())=="" || ($("#provincia").val())=="undefined") {
+    if (($("#Provincia").val())=="" || ($("#Provincia").val())=="undefined") {
         generarErrores("El campo provincia es obligatorio.")
         return false;
     }
-    if(!($("#provincia").val().match("[a-zç A-ZÇ À-ú]{3,30}$"))){
+    if(!($("#Provincia").val().match("[a-zç A-ZÇ À-ú]{3,30}$"))){
         generarErrores("Introduzca una provincia válida. (No se admiten símbolos. La longitud del campo debe ser mayor que 3)")
         return false;
     }

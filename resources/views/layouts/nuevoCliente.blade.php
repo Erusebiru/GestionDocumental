@@ -2,12 +2,12 @@
 
 @extends('base')
 @include('components.user')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <h1>GestionDocumental/Ventas</h1>
+        <h1 class="containerfluidmargen">GestionDocumental/Ventas</h1>
     </div>
     <div class="row">
-        <h2>Nuevo Cliente</h2>
+        <h2 class="containerfluidmargen">Nuevo Cliente</h2>
     </div>
     <div class="row">
         <div class="col-md-7 col-lg-7">
@@ -17,44 +17,44 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre">
+                        <input type="text" class="form-control" name="Nombre" id="Nombre">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="email">Email:</label>
-                        <input type="text" class="form-control" name="email" id="email">
+                        <input type="text" class="form-control" name="Email" id="Email">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="nifcif">NIF/CIF:</label>
-                        <input type="text" class="form-control" name="nifcif" id="nifcif">
+                        <input type="text" class="form-control" name="NIF_CIF" id="NIF_CIF">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" class="form-control" name="telefono" id="telefono">
+                        <input type="text" class="form-control" name="Telefono" id="Telefono">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="direccion">Dirección:</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion">
+                        <input type="text" class="form-control" name="Direccion" id="Direccion">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="localidad">Localidad:</label>
-                        <input type="text" class="form-control" name="localidad" id="localidad">
+                        <input type="text" class="form-control" name="Localidad" id="Localidad">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="cp">Código Postal:</label>
-                        <input type="text" class="form-control" name="cp" id="cp">
+                        <input type="text" class="form-control" name="CP" id="CP">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="provincia">Provincia:</label>
-                        <input type="text" class="form-control" name="provincia" id="provincia">
+                        <input type="text" class="form-control" name="Provincia" id="Provincia">
                     </div>
                 </div>
             </form>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <a type="button" class="btn btn-dark" href="{{ URL::to('/') }}">Cancelar</a>
                     </div>
                     <div class="col-md-3 text-right">
@@ -63,8 +63,8 @@
                 </div>
             
             </div>
-            <div class="col-md-3"  id="errores">
-            @include('components.errores')
+            <div class="col-md-5"  id="errores">
+                @include('components.errores')
             </div>
         </div>
         
