@@ -29,6 +29,12 @@ nav{
 	background-color: #d31313 !important;
 	color: white !important;
 }
+
+.containerfluidmargen {
+	margin-left: 5%;
+}
+
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

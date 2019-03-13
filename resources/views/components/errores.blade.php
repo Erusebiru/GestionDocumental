@@ -1,1 +1,0 @@
-<button onclick="generarErrores('hola')">Generar Error</button><!--Aqui apareceran los errores-->

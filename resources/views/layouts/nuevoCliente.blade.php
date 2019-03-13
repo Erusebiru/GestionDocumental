@@ -1,6 +1,5 @@
-<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
 
-@extends('base')
+@include('base')
 @include('components.user')
 <div class="container-fluid">
     <div class="row">
@@ -10,7 +9,7 @@
         <h2 class="containerfluidmargen">Nuevo Cliente</h2>
     </div>
     <div class="row">
-        <div class="col-md-7 col-lg-7">
+        <div class="col-md-7 col-lg-7 containerfluidmargen">
             <form method="post" name="form" id="formCliente" action="{{action('ClientesController@guardarCliente')}}">
 
                 {{ csrf_field() }}
@@ -63,9 +62,7 @@
                 </div>
             
             </div>
-            <div class="col-md-5"  id="errores">
-                @include('components.errores')
-            </div>
+            <div class="col-md-4"  id="errores"></div>
         </div>
         
     </div>

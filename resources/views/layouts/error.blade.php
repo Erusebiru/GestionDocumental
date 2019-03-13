@@ -1,16 +1,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
 
-@extends('base')
+@include('base')
 @include('components.user')
 <div class="container">
 <br><br><br>
-<div class="col-md-10 col-lg-10">
+	
 	@if (session('errors'))
 		<h1 class="alert alert-danger" align="center">
-			<i class="fas fa-exclamation-triangle">
 			{{session('errors')->first('Error1')}}
+			<i class="fas fa-exclamation-triangle">
+
 		</h1>
+		<!--controlar el icono o borrarlo -->
 	@endif
-</div>
+	
 </div>
