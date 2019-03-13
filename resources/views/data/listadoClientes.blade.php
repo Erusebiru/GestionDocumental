@@ -9,12 +9,6 @@
 
     crearListaClientes(clientes);
     generarTablas("#prueba",clientes,"/cliente/");
-    function crearListaClientes(datos){
-	var nombreColumnas = ['ID','Nombre', 'CIF/NIF', 'Codigo Postal'];
-	var padre = '#divClientes';
-	
-	visualizarDatos(nombreColumnas, padre, clientes, undefined);
-    }
-    
+  
 
 </script>

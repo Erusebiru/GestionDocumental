@@ -53,6 +53,7 @@ class CreateTables extends Migration
             $table->string('Estado');
             $table->date('Fecha_aprovacion')->nullable();
             $table->foreign('Num_venta')->references('Id')->on('ventas');
+            $table->string('Ruta');
     
         });
     }
@@ -64,9 +65,10 @@ class CreateTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
         Schema::dropIfExists('documentos');
-        Schema::dropIfExists('usuarios');
         Schema::dropIfExists('ventas');
+        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('usuarios');
+        
     }
 }

@@ -7,7 +7,7 @@
 */
 
 //en un futuro habra que cambiar el Id_cliente de bbdd por ID para que esta funcion pueda ser mas generica
-function visualizarDatos(nombreColumnas, padre, listaDatos, iconos){	
+/*function visualizarDatos(nombreColumnas, padre, listaDatos, iconos){	
     var tabla = "<table>";
 	
     for(nombre in nombreColumnas){
@@ -28,7 +28,7 @@ function visualizarDatos(nombreColumnas, padre, listaDatos, iconos){
     } 
     tabla += "</table>";       
     $(padre).append(tabla);
-}
+}*/
 
 function vistaCliente(id){
     window.location = "/cliente/"+id ;
@@ -37,7 +37,7 @@ function vistaCliente(id){
 function redirigir(event){
     window.location = event.data.url;
 }
-function visualizarDatos2(nombreColumnas, padre, listaDatos, iconos){	
+/*function visualizarDatos2(nombreColumnas, padre, listaDatos, iconos){	
     var tabla = "<table>";
 	
     for(nombre in nombreColumnas){
@@ -60,7 +60,7 @@ function visualizarDatos2(nombreColumnas, padre, listaDatos, iconos){
     $(padre).append(tabla);
 
 }
-
+*/
 function generarTablas(padre,data,ruta){
 
     var cabecera = obtenerCabecera(data);
@@ -84,7 +84,6 @@ function generarTablas(padre,data,ruta){
             // Fin de la cabecera
             // Cuerpo
             if (y=="Id" && ruta!=undefined){
-                console.log("hola")
                 $(fila).on("click",{url: ruta+data[x][y]},redirigir);
             }
             $(fila).append($("<td>").text(data[x][y]))
