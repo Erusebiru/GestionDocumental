@@ -6,7 +6,7 @@
 <script>
     var Albaran = {!! json_encode($DocumentosA->toArray(), JSON_HEX_TAG) !!} ;
     console.log(Albaran)
-    generarTablas("#prueba3",Albaran);
+    generarTablas("#prueba3",Albaran,undefined,"Si");
 
     
 

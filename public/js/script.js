@@ -28,40 +28,17 @@
     } 
     tabla += "</table>";       
     $(padre).append(tabla);
-}*/
+}
 
 function vistaCliente(id){
     window.location = "/cliente/"+id ;
-}
+}*/
 
 function redirigir(event){
     window.location = event.data.url;
 }
-/*function visualizarDatos2(nombreColumnas, padre, listaDatos, iconos){	
-    var tabla = "<table>";
-	
-    for(nombre in nombreColumnas){
-	    tabla += "<th>"+nombreColumnas[nombre]+"</th>";
-	}
 
-    for (data in listaDatos){
-        tabla += "<tr class='fila'>";
-        for (x in listaDatos[data]){
-            tabla += "<td>"+listaDatos[data][x]+"</td>";
-            if (iconos != undefined && iconos != ""){
-                iconos.forEach(function(icono){
-                    tabla += "<td>"+icono+"</td>";
-                })
-            }
-        } 
-        tabla += "</tr>";
-    } 
-    tabla += "</table>";       
-    $(padre).append(tabla);
-
-}
-*/
-function generarTablas(padre,data,ruta){
+function generarTablas(padre,data,ruta,iconos){
 
     var cabecera = obtenerCabecera(data);
     //console.log(cabecera)
@@ -69,7 +46,7 @@ function generarTablas(padre,data,ruta){
     var tabla = $("<table>");
 
     for (x in data){
-        var fila = $("<tr>").attr("class","fila1");
+        var fila = $("<tr>").attr("class","fila");
         for(y in data[x]){
             //console.log(data[x][y]);
             // Generar cabecera de la tabla de datos
@@ -79,6 +56,7 @@ function generarTablas(padre,data,ruta){
                     //console.log(z)
                     $(tabla).append($("<th>").text(cabecera[z]))
                 }
+
                 controlDeCabecera++;
             }
             // Fin de la cabecera
@@ -89,6 +67,9 @@ function generarTablas(padre,data,ruta){
             $(fila).append($("<td>").text(data[x][y]))
             // Fin Cuerpo
         }
+        /*if (iconos=="Si"){
+            generarIconos(fila);    
+        }*/
         $(tabla).append(fila);
     }
     $(padre).append(tabla)
@@ -103,3 +84,13 @@ function obtenerCabecera(data){
     }
     return cabecera;
 }
+
+/*
+function generarIconos(fila){
+    
+    var columnas = $("<td>");
+    $(columnas).append($("<i>").attr("class","fas fa-edit icono-margen"));
+    $(columnas).append($("<i>").attr("class","fas fa-search icono-margen"));
+    $(fila).append(columnas);
+}
+*/

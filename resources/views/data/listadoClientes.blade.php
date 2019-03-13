@@ -6,8 +6,6 @@
 <div id="prueba"></div>
 <script>
     var clientes = {!! json_encode($clientes->toArray(), JSON_HEX_TAG) !!} ;
-
-    crearListaClientes(clientes);
     generarTablas("#prueba",clientes,"/cliente/");
   
 
