@@ -12,17 +12,15 @@
     <div class="row">
         <div class="col-md-8">
             <h3>Pedido</h3>
-            <table>
-                <th>Nombre</th>
-            </table>
+            @include('data.listadoDocumentos')            
             <h3>Albaran</h3>
-            <table>
-                <th>Nombre</th>
-            </table>
+            
             <h3>Factura</h3>
-            <table>
-                <th>Nombre</th>
-            </table>
+
+            <h3>DocumentoY</h3>
+
+            <h3>DocumentoX</h3>
+            
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-3"  id="errores"></div>

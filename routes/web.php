@@ -30,14 +30,7 @@ Route::get('/error', function () {
 
 Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
-Route::get('/cliente', function () {
-	
-    return view('layouts.listaDetalleClientes');
-});
-Route::get('/cliente/detalle', function () {
-	
-    return view('layouts.listaDetalleVentas');
-});
+Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 /*Para usar cualquier metodo HTTP
 Route::any('/', function()
