@@ -4,7 +4,7 @@
     <div class="col-md-8">
             <h3>Pedido</h3>
             <span class="file-input btn btn-primary btn-file">
-                <input type="file">Añadir pedido
+                <input tipo="Pedido" type="file">Añadir pedido
             </span>
             <div id="Pedido"></div>
             <script>
@@ -16,7 +16,7 @@
         <div class="col-md-8">
             <h3>Albaran</h3>
             <span class="file-input btn btn-primary btn-file">
-                <input type="file">Añadir albaran
+                <input tipo="Albaran" type="file">Añadir albaran
             </span>
             <div id="Albaran"></div>
             <script>
@@ -28,7 +28,7 @@
         <div class="col-md-8">
             <h3>Factura</h3>
             <span class="file-input btn btn-primary btn-file">
-                <input type="file">Añadir factura
+                <input tipo="Factura" type="file">Añadir factura
             </span>
             <div id="Factura"></div>
             <script>
@@ -40,7 +40,7 @@
         <div class="col-md-8">
             <h3>DocumentoY</h3>
             <span class="file-input btn btn-primary btn-file">
-                <input type="file">Añadir documentoY
+                <input tipo="DocumentoY" type="file">Añadir documentoY
             </span>
             <div id="DocumentoY"></div>
             <script>
@@ -53,7 +53,7 @@
         <div class="col-md-8">
             <h3>DocumentoX</h3>
             <span class="file-input btn btn-primary btn-file">
-                <input type="file">Añadir documentoX
+                <input tipo="DocumentoX" type="file">Añadir documentoX
             </span>
                 <div id="DocumentoX"></div>
                 <script>

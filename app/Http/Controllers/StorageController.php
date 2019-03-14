@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class StorageController extends Controller {
 
     public function subirDocumento(Request $request){
-       try {
+      try {
         //obtenemos el campo file definido en el formulario
         $documento = $request->file('file');
        
@@ -19,7 +19,7 @@ class StorageController extends Controller {
         $tipo = $request->Input("tipo");
 
         //creamos el nombre del archivo
-        $nombre = $id . "_" . $tipo . "_" . date('YmdHis', time()) . "." . $documento->getClientOriginalExtension();
+        $nombre = $tipo . "_" . date('YmdHis', time()) . ".pdf";
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         \Storage::disk('public')->put($nombre, file_get_contents($documento));
@@ -28,7 +28,6 @@ class StorageController extends Controller {
         $documento = new Archivo;
         $documento->Tipo = $tipo;
         $documento->Ruta = $nombre;
-        $documento->Num_venta = $id;
         $documento->save();
 
         return redirect()->back();

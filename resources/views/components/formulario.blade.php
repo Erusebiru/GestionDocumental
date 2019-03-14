@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/validaciones.js') }}"></script>
 
 <form name="form" method="post" id="form">
     @csrf <!-- {{ csrf_field() }} -->
@@ -40,4 +41,10 @@
     $(form).append(boton);
     $("#formulario").append(form);
 }
+
+function validarFormulario(){
+        if (validarCliente()==true){
+            $("#formCliente").submit();
+        }
+    }
 </script>
