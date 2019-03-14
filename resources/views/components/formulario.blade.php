@@ -10,7 +10,7 @@
     for (var i = 0; i < cliente.length; i++){
     var obj = cliente[i];
     var num = 0;
-    var form = $("<form>").attr("method","post").attr("name","form").attr("id","form").attr("action","/cliente/guardaCambios/",cliente[i].Id);
+    var form = $("<form>").attr("method","post").attr("name","form").attr("id","formModificarCliente").attr("action","/cliente/guardaCambios/",cliente[i].Id);
     var control = 0;
     for (var key in obj){
         if(control == 0){
@@ -44,7 +44,7 @@
 
 function validarFormulario(){
         if (validarCliente()==true){
-            $("#formCliente").submit();
+            $("#formModificarCliente").submit();
         }
     }
 </script>
