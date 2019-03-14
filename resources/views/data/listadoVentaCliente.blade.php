@@ -7,14 +7,6 @@
 <script>
     var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!} ;
 
-    crearListaVentas(ventas);
     generarTablas("#prueba2",ventas,"/cliente/detalle/");
-    function crearListaVentas(datos){
-	var nombreColumnas = ['ID','Fecha','Estado'];
-	var padre = '#divVentaCliente';
-	
-	visualizarDatos2(nombreColumnas, padre, ventas, undefined);
-    }
-    
 
 </script>

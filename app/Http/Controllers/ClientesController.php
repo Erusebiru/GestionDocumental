@@ -11,9 +11,13 @@ class ClientesController extends Controller
 {
 
     public function getClientes(){
-		$clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
-        return view("layouts.listaClientes", compact('clientes'));
-        
+		try{
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
+            return view("layouts.listaClientes", compact('clientes'));
+        }
+        catch (Exception $e){ 
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+        }
     
     }
     
@@ -32,11 +36,9 @@ class ClientesController extends Controller
             
             $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
             return view("layouts.listaClientes", compact('clientes'));
-
-           // redirect()->action('ClientesController@getClientes');
         }
         catch (Exception $e){ 
-            return redirect()->to('/error')->withErrors(['Error1'=>'Error del servidor']);
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
     
@@ -49,7 +51,7 @@ class ClientesController extends Controller
             return view("layouts.listaDetalleClientes", compact('cliente','venta'));
         }
         catch(Exception $e){
-            return redirect()->to('/error')->withErrors(['Error1'=>'Error del servidor']);
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
 		}
     }
 
@@ -68,7 +70,7 @@ class ClientesController extends Controller
             return redirect()->back();
         }
         catch(Exception $e){
-            return redirect()->to('/error')->withErrors(['Error1'=>'Error del servidor']);
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
 }

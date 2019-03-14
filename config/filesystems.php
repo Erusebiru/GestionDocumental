@@ -63,14 +63,6 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
-
-    ],
-
-    'local' => [
-    
-    'driver' => 'local',
-    
-    'root' => public_path().'/storage',
     
     ],
 

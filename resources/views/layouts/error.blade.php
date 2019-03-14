@@ -8,7 +8,7 @@
 	
 	@if (session('errors'))
 		<h1 class="alert alert-danger" align="center">
-			{{session('errors')->first('Error1')}}
+			{{session('errors')->first('Error')}}
 			<i class="fas fa-exclamation-triangle">
 
 		</h1>

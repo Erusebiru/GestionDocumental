@@ -32,8 +32,4 @@ Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
 Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
-/*Para usar cualquier metodo HTTP
-Route::any('/', function()
-{
-    return '¡Hola mundo!';
-});*/
+Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
