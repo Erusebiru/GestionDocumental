@@ -10,6 +10,9 @@ th{
 nav{
 	border:1px solid black;
 }
+table,td,th{
+	text-align: center;
+}
 .error{
 	color: red;
 	font-size: 24px;
@@ -17,7 +20,6 @@ nav{
 
 .fila:hover{
 	background-color: #E97C81;
-	font-size: 18;
 }
 
 .btn {
@@ -58,6 +60,10 @@ nav{
 	opacity: 0;
 	cursor: inherit;
 	display: block;
+}
+
+.icono-margen{
+	margin-left: 20%;
 }
 
 /*!

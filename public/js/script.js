@@ -1,12 +1,51 @@
+<<<<<<< HEAD
+=======
+
+/* 	funcion para visualizar datos en forma de tabla
+    nombreColumnas sera una lista con el nombre de las columnas;
+	padre sera la referencia al lugar/elemento donde se creara el elemento;
+	listaDatos sera una lista de datos;
+    iconos será una lista de imagenes;
+*/
+
+//en un futuro habra que cambiar el Id_cliente de bbdd por ID para que esta funcion pueda ser mas generica
+/*function visualizarDatos(nombreColumnas, padre, listaDatos, iconos){	
+    var tabla = "<table>";
+	
+    for(nombre in nombreColumnas){
+	    tabla += "<th>"+nombreColumnas[nombre]+"</th>";
+	}
+
+    for (data in listaDatos){
+        tabla += "<tr class='fila' onclick='vistaCliente("+listaDatos[data].Id+")'>";
+        for (x in listaDatos[data]){
+            tabla += "<td>"+listaDatos[data][x]+"</td>";
+            if (iconos != undefined && iconos != ""){
+                iconos.forEach(function(icono){
+                    tabla += "<td>"+icono+"</td>";
+                })
+            }
+        } 
+        tabla += "</tr>";
+    } 
+    tabla += "</table>";       
+    $(padre).append(tabla);
+}
+
+>>>>>>> 38b2ffcc8cc433eabaae82d08b8f1b583b06bab9
 function vistaCliente(id){
     window.location = "/cliente/"+id ;
-}
+}*/
 
 function redirigir(event){
     window.location = event.data.url;
 }
 
+<<<<<<< HEAD
 function generarTablas(padre,data,ruta){
+=======
+function generarTablas(padre,data,ruta,iconos){
+>>>>>>> 38b2ffcc8cc433eabaae82d08b8f1b583b06bab9
 
     var cabecera = obtenerCabecera(data);
     //console.log(cabecera)
@@ -14,7 +53,7 @@ function generarTablas(padre,data,ruta){
     var tabla = $("<table>");
 
     for (x in data){
-        var fila = $("<tr>").attr("class","fila1");
+        var fila = $("<tr>").attr("class","fila");
         for(y in data[x]){
             //console.log(data[x][y]);
             // Generar cabecera de la tabla de datos
@@ -24,6 +63,7 @@ function generarTablas(padre,data,ruta){
                     //console.log(z)
                     $(tabla).append($("<th>").text(cabecera[z]))
                 }
+
                 controlDeCabecera++;
             }
             // Fin de la cabecera
@@ -34,6 +74,9 @@ function generarTablas(padre,data,ruta){
             $(fila).append($("<td>").text(data[x][y]))
             // Fin Cuerpo
         }
+        /*if (iconos=="Si"){
+            generarIconos(fila);    
+        }*/
         $(tabla).append(fila);
     }
     $(padre).append(tabla)
@@ -49,6 +92,7 @@ function obtenerCabecera(data){
     return cabecera;
 }
 
+<<<<<<< HEAD
 function crearElemento(padre, tipoElemento, texto, atributos) {
     if(atributos===undefined || atributos===null){
         atributos={};
@@ -63,3 +107,14 @@ function crearElemento(padre, tipoElemento, texto, atributos) {
     }
     return nuevoElemento;
 }
+=======
+/*
+function generarIconos(fila){
+    
+    var columnas = $("<td>");
+    $(columnas).append($("<i>").attr("class","fas fa-edit icono-margen"));
+    $(columnas).append($("<i>").attr("class","fas fa-search icono-margen"));
+    $(fila).append(columnas);
+}
+*/
+>>>>>>> 38b2ffcc8cc433eabaae82d08b8f1b583b06bab9

@@ -12,7 +12,6 @@
     <div class="row">
         <div class="col-md-8 fila">
             <h3>Pedido</h3>
-            @include('data.listadoDocumentos')
             <span class="file-input btn btn-primary btn-file">
                 <input type="file">Añadir pedido
             </span>
@@ -76,6 +75,9 @@
         
     </script>
 
+        <div class="col-md-8">
+            @include('data.listadoDocumentos')            
+            
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-3"  id="errores"></div>
