@@ -9,10 +9,8 @@
 	@if (session('errors'))
 		<h1 class="alert alert-danger" align="center">
 			{{session('errors')->first('Error')}}
-			<i class="fas fa-exclamation-triangle">
 
 		</h1>
-		<!--controlar el icono o borrarlo -->
 	@endif
 	
 </div>
