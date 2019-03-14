@@ -36,4 +36,6 @@ class StorageController extends Controller {
        catch(Exception $e) {
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
        }
+
+    }
 }
