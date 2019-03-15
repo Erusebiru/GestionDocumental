@@ -12,7 +12,7 @@ class ClientesController extends Controller
 
     public function getClientes(){
 		try{
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->get();
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
@@ -34,7 +34,7 @@ class ClientesController extends Controller
             $cliente->Provincia = $request->input('Provincia');
             $cliente->save();    
             
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->get();
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
@@ -42,8 +42,14 @@ class ClientesController extends Controller
         }
     }
     public function getFiltroCliente(Request $request){
-        $cliente = Cliente::where('Nombre','like','%'.$consulta.'%')->orWhere('Localidad','like','%'.$consulta.'%')->orWhere('NIF_CIF','like','%'.$consulta.'%')->get();
+        echo $request->input('Consulta');
+        $clientes = Cliente::where('Nombre','like','%'.$request->input('consulta').'%')->orWhere('Localidad','like','%'.$request->input('consulta').'%')->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')->get(['Id', 'Nombre','NIF_CIF','Localidad']);
         return view("layouts.listaClientes", compact('clientes'));
+    }
+    public function getFiltroVenta(Request $request,$id){
+        $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
+        $venta = Venta::where('Cliente',$id)->where('Estado','like','%'.$request->input('consulta').'%')->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')->get(['Id','Fecha_venta','Estado']);
+        return view("layouts.listaDetalleClientes", compact('cliente','venta'));
     }
 
     public function getCliente($id){

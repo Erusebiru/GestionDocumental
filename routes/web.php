@@ -35,3 +35,7 @@ Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
 
 Route::post('/filtrarClientes', 'ClientesController@getFiltroCliente');
+
+Route::post('/filtrarVenta/{id}', 'ClientesController@getFiltroVenta');
+
+

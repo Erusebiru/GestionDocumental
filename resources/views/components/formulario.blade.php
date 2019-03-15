@@ -5,8 +5,8 @@
     @csrf <!-- {{ csrf_field() }} -->
 </form>
 <script>
-    var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!} ;
-    console.log(cliente);
+
+    var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!};
     for (var i = 0; i < cliente.length; i++){
     var obj = cliente[i];
     var num = 0;

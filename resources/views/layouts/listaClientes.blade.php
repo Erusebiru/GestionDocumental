@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <div id="filtro">
-                @include('components.filtros')
+                @include('components.filtroCliente')
             </div>
         </div>
     </div>

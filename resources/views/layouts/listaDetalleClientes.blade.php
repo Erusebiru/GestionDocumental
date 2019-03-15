@@ -10,6 +10,13 @@
         <h2>Detalle<!-- Pasar por POST el nombre del cliente--></h2>
     </div>
     <div class="row">
+        <div class="col-md-12">
+            <div id="filtro">
+                @include('components.filtroVenta')
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8">
             @include('data.listadoVentaCliente')
         </div>
