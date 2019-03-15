@@ -41,7 +41,10 @@ class ClientesController extends Controller
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
-    
+    public function getFiltroCliente(Request $request){
+        $cliente = Cliente::where('Nombre','like','%'.$consulta.'%')->orWhere('Localidad','like','%'.$consulta.'%')->orWhere('NIF_CIF','like','%'.$consulta.'%')->get();
+        return view("layouts.listaClientes", compact('clientes'));
+    }
 
     public function getCliente($id){
         try {
