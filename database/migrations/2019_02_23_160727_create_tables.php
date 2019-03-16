@@ -49,11 +49,13 @@ class CreateTables extends Migration
             $table->increments('Id')->unique();
             $table->string('Tipo');
             $table->integer('Num_venta')->unsigned();
-            $table->date('Fecha_subida');
+            $table->string('Nombre');
+        /* $table->date('Fecha_subida');
             $table->string('Estado');
-            $table->date('Fecha_aprovacion')->nullable();
+            $table->date('Fecha_aprovacion')->nullable();*/
             $table->foreign('Num_venta')->references('Id')->on('ventas');
             $table->string('Ruta');
+            $table->timestamps();
     
         });
     }

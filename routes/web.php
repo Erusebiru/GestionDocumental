@@ -33,3 +33,5 @@ Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
+
+Route::get('/documentos/{id}','DocumentosController@vistaDocumento');

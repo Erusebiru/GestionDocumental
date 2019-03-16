@@ -3,7 +3,7 @@ function redirigir(event){
     window.location = event.data.url;
 }
 
-function generarTablas(padre,data,ruta){
+function generarTablas(padre,data,ruta,iconos){
 
     var cabecera = obtenerCabecera(data);
     //console.log(cabecera)
@@ -18,8 +18,10 @@ function generarTablas(padre,data,ruta){
             if(controlDeCabecera==0){
                 //console.log(cabecera)
                 for(z in cabecera){
-                    //console.log(z)
-                    $(tabla).append($("<th>").text(cabecera[z]))
+                    console.log(cabecera[z])
+                    if (cabecera[z] != "Ruta"){
+                        $(tabla).append($("<th>").text(cabecera[z]))
+                    }
                 }
 
                 controlDeCabecera++;
@@ -29,12 +31,15 @@ function generarTablas(padre,data,ruta){
             if (y=="Id" && ruta!=undefined){
                 $(fila).on("click",{url: ruta+data[x][y]},redirigir);
             }
-            $(fila).append($("<td>").text(data[x][y]))
+           if( y!="Ruta" ) {
+                $(fila).append($("<td>").text(data[x][y]))
+           }
             // Fin Cuerpo
         }
-        /*if (iconos=="Si"){
-            generarIconos(fila);    
-        }*/
+        if (iconos=="Si"){
+
+            generarIconos(fila,data[x]["Ruta"]);    
+        }
         $(tabla).append(fila);
     }
     $(padre).append(tabla)
@@ -64,3 +69,16 @@ function crearElemento(padre, tipoElemento, texto, atributos) {
     }
     return nuevoElemento;
 }
+
+function generarIconos(fila,id){
+    
+    var columnas = $("<td>");
+    $(columnas).append($("<i>").attr("class","fas fa-edit icono-margen"));
+    var search = $("<a>").attr("href","/storage/"+id).attr("target","_blank").attr("class","fas fa-search icono-margen");
+    $(columnas).append(search);
+    //$(columnas).append($("<i>").attr("class","fas fa-search icono-margen"));
+    $(columnas).append($("<i>").attr("class","fas fa-file-download icono-margen"));
+    $(fila).append(columnas);
+    //<a target="_blank" href="{{asset('files/nombreDeTuPdf.pdf')}}">
+    //{{action('ClientesController@guardarCliente')}}
+}   //Route::get('/documentos/{id}','DocumentosController@vistaDocumento');

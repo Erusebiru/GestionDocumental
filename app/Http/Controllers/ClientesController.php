@@ -32,7 +32,7 @@ class ClientesController extends Controller
             $cliente->Localidad = $request->input('Localidad');
             $cliente->CP = (int)$request->input('CP');
             $cliente->Provincia = $request->input('Provincia');
-            $cliente->save();    
+            $cliente->save();
             
             $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','CP')->get();
             return view("layouts.listaClientes", compact('clientes'));
