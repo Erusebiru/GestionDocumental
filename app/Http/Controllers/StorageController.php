@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class StorageController extends Controller {
 
     public function subirDocumento(Request $request,$id){
-      //try {
+      try {
         //obtenemos el campo file definido en el formulario
         
         $file = $request->file('documento');
@@ -35,9 +35,9 @@ class StorageController extends Controller {
         $documento->save();
 
         return redirect()->back();
-      /*}
+      }
        catch(Exception $e) {
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
-       }*/
+       }
     }
 }

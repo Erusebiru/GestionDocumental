@@ -10,6 +10,13 @@
         <h2>Clientes</h2>
     </div>
     <div class="row">
+        <div class="col-md-12">
+            <div id="filtro">
+                @include('components.filtroCliente')
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8">
             @include('data.listadoClientes')
             <br><br>
