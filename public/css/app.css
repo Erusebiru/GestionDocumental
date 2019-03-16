@@ -7,12 +7,16 @@ th{
 	padding-bottom: 2%;
 	width: 15%;
 }
+
 nav{
 	border:1px solid black;
 }
 table,td,th{
 	text-align: center;
+	padding-left: 10%;
+	padding-right: 10%;
 }
+
 .error{
 	color: red;
 	font-size: 24px;

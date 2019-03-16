@@ -40,4 +40,14 @@ class StorageController extends Controller {
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
        }
     }
+
+    public function descargarDocumento ($nombre){
+      try{
+        $pathtoFile = public_path().'/storage/'.$nombre;
+        return response()->download($pathtoFile);
+      }
+      catch(Exception $e) {
+        return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+      }
+    }
 }

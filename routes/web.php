@@ -38,4 +38,4 @@ Route::post('/filtrarClientes', 'ClientesController@getFiltroCliente');
 
 Route::post('/filtrarVenta/{id}', 'ClientesController@getFiltroVenta');
 
-
+Route::get('/download/{nombre}' , 'StorageController@descargarDocumento');

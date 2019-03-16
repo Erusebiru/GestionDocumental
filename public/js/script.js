@@ -18,7 +18,7 @@ function generarTablas(padre,data,ruta,iconos){
             if(controlDeCabecera==0){
                 //console.log(cabecera)
                 for(z in cabecera){
-                    console.log(cabecera[z])
+                    //console.log(cabecera[z])
                     if (cabecera[z] != "Ruta"){
                         $(tabla).append($("<th>").text(cabecera[z]))
                     }
@@ -70,15 +70,13 @@ function crearElemento(padre, tipoElemento, texto, atributos) {
     return nuevoElemento;
 }
 
-function generarIconos(fila,id){
+function generarIconos(fila,nombre){
     
     var columnas = $("<td>");
     $(columnas).append($("<i>").attr("class","fas fa-edit icono-margen"));
-    var search = $("<a>").attr("href","/storage/"+id).attr("target","_blank").attr("class","fas fa-search icono-margen");
+    var search = $("<a>").attr("href","/storage/"+nombre).attr("target","_blank").attr("class","fas fa-search icono-margen");
     $(columnas).append(search);
-    //$(columnas).append($("<i>").attr("class","fas fa-search icono-margen"));
-    $(columnas).append($("<i>").attr("class","fas fa-file-download icono-margen"));
+    var download = $("<a>").attr("href","/download/"+nombre).attr("target","_blank").attr("class","fas fa-file-download icono-margen");
+    $(columnas).append(download);
     $(fila).append(columnas);
-    //<a target="_blank" href="{{asset('files/nombreDeTuPdf.pdf')}}">
-    //{{action('ClientesController@guardarCliente')}}
-}   //Route::get('/documentos/{id}','DocumentosController@vistaDocumento');
+}
