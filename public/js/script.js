@@ -33,12 +33,15 @@ function generarTablas(padre,data,ruta,iconos){
             }
            if( y!="Ruta" ) {
                 $(fila).append($("<td>").text(data[x][y]))
+                if (y=="Tipo"){
+                    var tipo = data[x][y];
+                }
            }
             // Fin Cuerpo
         }
         if (iconos=="Si"){
 
-            generarIconos(fila,data[x]["Ruta"]);    
+            generarIconos(fila,data[x]["Ruta"],tipo);    
         }
         $(tabla).append(fila);
     }
@@ -70,13 +73,26 @@ function crearElemento(padre, tipoElemento, texto, atributos) {
     return nuevoElemento;
 }
 
-function generarIconos(fila,nombre){
+function generarIconos(fila,nombre,tipo){
     
     var columnas = $("<td>");
-    $(columnas).append($("<i>").attr("class","fas fa-edit icono-margen"));
+    var input = $("<input>").attr("type","file").attr("name",nombre).attr("tipo",tipo).prop('hidden', true);;
+    var formReemplazar = $("<span>").attr("class","reemplazarFile file-input");
+    $(formReemplazar).append(input);
+
+    var reemplazar = $("<i>").attr("class","fas fa-edit icono-margen iconoReemplazar");
+    //console.log(nombre);
+    reemplazar.on("click", inputVisible(nombre));
+    $(columnas).append(reemplazar);
     var search = $("<a>").attr("href","/storage/"+nombre).attr("target","_blank").attr("class","fas fa-search icono-margen");
     $(columnas).append(search);
     var download = $("<a>").attr("href","/download/"+nombre).attr("target","_blank").attr("class","fas fa-file-download icono-margen");
     $(columnas).append(download);
+    $(columnas).append(formReemplazar);
     $(fila).append(columnas);
 }
+
+function inputVisible(nombre) {
+    console.log("hola");
+    //$("input[name='"+nombre+"']").prop('hidden', false);
+ };

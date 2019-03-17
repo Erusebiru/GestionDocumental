@@ -53,15 +53,15 @@ class ClientesController extends Controller
     }
 
     public function getCliente($id){
-        try {
+      //  try {
 
             $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
             $venta = Venta::where('Cliente',$id)->get(['Id','Fecha_venta','Estado']);
             return view("layouts.listaDetalleClientes", compact('cliente','venta'));
-        }
+       /* }
         catch(Exception $e){
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
-		}
+		}*/
     }
 
     public function guardarCambios(Request $request, $id){
@@ -79,6 +79,25 @@ class ClientesController extends Controller
             return redirect()->back();
         }
         catch(Exception $e){
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+        }
+    }
+
+
+    public function guardarVenta(Request $request){
+        try{
+            $venta = new Venta;
+			$venta->Fecha_Venta = $request->input('Fecha_Venta');
+            $venta->Estado = "Sin confirmar";
+            //$request->input('Estado');
+            $id= $request->input('Id');
+            $venta->Cliente = $id ;
+        
+            $venta->save();
+
+           return self::getCliente($id) ;
+        }
+        catch (Exception $e){ 
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }

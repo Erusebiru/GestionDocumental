@@ -39,3 +39,10 @@ Route::post('/filtrarClientes', 'ClientesController@getFiltroCliente');
 Route::post('/filtrarVenta/{id}', 'ClientesController@getFiltroVenta');
 
 Route::get('/download/{nombre}' , 'StorageController@descargarDocumento');
+
+Route::post('/guardarVenta', 'ClientesController@guardarVenta');
+
+
+Route::get('/nuevaVenta/{id}', function ($id){
+    return view('layouts.nuevaVenta',['id'=>$id]);
+});
