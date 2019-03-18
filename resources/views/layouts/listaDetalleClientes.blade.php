@@ -1,5 +1,5 @@
 <!-- resources/views/layouts/app.blade.php -->
-@extends('base')
+@include('base')
 @include('components.user')
 <div class="container">
     <div class="row">
@@ -11,13 +11,14 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <table>
-                <th>ID</th>
-                <th>Fecha de creacion</th>
-                <th>Estado</th>
-            </table>
+            @include('data.listadoVentaCliente')
         </div>
         <div class="col-md-1"></div>
-        @include('components.errores')
+        <div class="col-md-3"  id="errores"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="formulario">
+        @include('components.formulario')
+        </div>
     </div>
 </div>

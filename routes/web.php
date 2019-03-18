@@ -11,21 +11,25 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'ClientesController@getClientes');
+
+Route::get('/cliente/{id}','ClientesController@getCliente');
+
+Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');
+
+Route::get('/create', function () {
 	
-    return view('layouts.listaClientes');
-});
-Route::get('/cliente', function () {
-	
-    return view('layouts.listaDetalleClientes');
-});
-Route::get('/cliente/detalle', function () {
-	
-    return view('layouts.listaDetalleVentas');
+    return view('layouts.nuevoCliente');
 });
 
-/*Para usar cualquier metodo HTTP
-Route::any('/', function()
-{
-    return '¡Hola mundo!';
-});*/
+Route::get('/error', function () {
+	
+    return view('layouts.error');
+});
+
+
+Route::post('/guardarCliente', 'ClientesController@guardarCliente');
+
+Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
+
+Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
