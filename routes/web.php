@@ -34,8 +34,8 @@ Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
 
-Route::post('/filtrarClientes', 'ClientesController@getFiltroCliente');
+Route::post('/', 'ClientesController@getFiltroCliente');
 
-Route::post('/filtrarVenta/{id}', 'ClientesController@getFiltroVenta');
+Route::post('/cliente/{id}', 'ClientesController@getFiltroVenta');
 
 Route::get('/download/{nombre}' , 'StorageController@descargarDocumento');

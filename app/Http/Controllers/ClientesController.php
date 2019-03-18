@@ -12,7 +12,7 @@ class ClientesController extends Controller
 
     public function getClientes(){
 		try{
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->get();
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(10);
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
@@ -21,6 +21,38 @@ class ClientesController extends Controller
     
     }
     
+    public function getFiltroCliente(Request $request){
+        $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
+        ->where('Nombre','like','%'.$request->input('consulta').'%')
+        ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
+        ->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')
+        ->paginate(10);
+        return view("layouts.listaClientes", compact('clientes'));
+    }
+    public function getFiltroVenta(Request $request,$id){
+        $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
+        
+        $venta = Venta::select('Id','Fecha_venta','Estado')
+        ->where('Cliente',$id)
+        ->where('Estado','like','%'.$request->input('consulta').'%')
+        ->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')
+        ->paginate(5);
+        return view("layouts.listaDetalleClientes", compact('cliente','venta'));
+    }
+
+    public function getCliente($id){
+        try {
+
+            $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
+            $venta = Venta::select('Id','Fecha_venta','Estado')->where('Cliente',$id)->paginate(5);
+            return view("layouts.listaDetalleClientes", compact('cliente','venta'));
+        }
+        catch(Exception $e){
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+		}
+    }
+
+
     public function guardarCliente(Request $request){
         try{
             $cliente = new Cliente;
@@ -32,7 +64,7 @@ class ClientesController extends Controller
             $cliente->Localidad = $request->input('Localidad');
             $cliente->CP = (int)$request->input('CP');
             $cliente->Provincia = $request->input('Provincia');
-            $cliente->save();
+            $cliente->save();    
             
             $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->get();
             return view("layouts.listaClientes", compact('clientes'));
@@ -40,28 +72,6 @@ class ClientesController extends Controller
         catch (Exception $e){ 
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
-    }
-    public function getFiltroCliente(Request $request){
-        echo $request->input('Consulta');
-        $clientes = Cliente::where('Nombre','like','%'.$request->input('consulta').'%')->orWhere('Localidad','like','%'.$request->input('consulta').'%')->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')->get(['Id', 'Nombre','NIF_CIF','Localidad']);
-        return view("layouts.listaClientes", compact('clientes'));
-    }
-    public function getFiltroVenta(Request $request,$id){
-        $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
-        $venta = Venta::where('Cliente',$id)->where('Estado','like','%'.$request->input('consulta').'%')->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')->get(['Id','Fecha_venta','Estado']);
-        return view("layouts.listaDetalleClientes", compact('cliente','venta'));
-    }
-
-    public function getCliente($id){
-        try {
-
-            $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
-            $venta = Venta::where('Cliente',$id)->get(['Id','Fecha_venta','Estado']);
-            return view("layouts.listaDetalleClientes", compact('cliente','venta'));
-        }
-        catch(Exception $e){
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
-		}
     }
 
     public function guardarCambios(Request $request, $id){

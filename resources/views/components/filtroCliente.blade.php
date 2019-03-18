@@ -2,5 +2,5 @@
 <script type="text/javascript" src="{{ asset('js/filtro.js') }}"></script>
 
 <script>
-    generarFiltro('#filtro','/filtrarClientes/')
+    generarFiltro('#filtro','/')
 </script>
