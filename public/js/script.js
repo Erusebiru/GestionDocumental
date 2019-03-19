@@ -4,7 +4,7 @@ function redirigir(event){
 }
 
 function generarTablas(padre,data,ruta,iconos){
-
+    console.log(data);
     var cabecera = obtenerCabecera(data);
     //console.log(cabecera)
     var controlDeCabecera = 0;

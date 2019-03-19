@@ -3,7 +3,7 @@
 <div>
     <br>
 </div>
-
+{{hola}}
 <div id="divNuevaVenta" class="col-md-8">
        <script>
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
@@ -15,7 +15,9 @@
 <div id="divVentaCliente"></div>
 <div id="prueba2"></div>
 <script>
-    var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!} ;
+    var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!}['data'];
     generarTablas("#prueba2",ventas,"/cliente/detalle/");
-
 </script>
+
+
+    

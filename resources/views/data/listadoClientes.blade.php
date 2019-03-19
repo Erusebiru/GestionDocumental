@@ -5,7 +5,8 @@
 <div id="divClientes"></div>
 <div id="prueba"></div>
 <script>
-    var clientes = {!! json_encode($clientes->toArray(), JSON_HEX_TAG) !!} ;
+    var clientes = {!! json_encode($clientes->toArray(), JSON_HEX_TAG) !!}['data'] ;
+    console.log(clientes)
     generarTablas("#prueba",clientes,"/cliente/");
   
 

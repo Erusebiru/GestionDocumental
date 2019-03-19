@@ -4,5 +4,5 @@
 <script>
     var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!} ;
     var Id = cliente[0]['Id'];
-    generarFiltro('#filtro','/filtrarVenta/'+Id)
+    generarFiltro('#filtro','/cliente/'+Id)
 </script>
