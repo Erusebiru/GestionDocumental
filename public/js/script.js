@@ -97,11 +97,11 @@ function reemplazarVisible(event) {
 //function crearElemento(padre, tipoElemento, texto, atributos) {
 
     var padre = $("#reemplazarDocumento");
-    var div = $("<div>").attr("class","col-md-8 falsomodal");
+    var div = $("<div>").attr("class","col-md-8 falsomodal").attr("align","center");
     var title = $("<h1>").text("Reemplazar Documento");
-    var span = $("<span>").attr("class","file-input btn btn-primary btn-file").text("Seleccionar archivo...");;
+    var span = $("<span>").attr("class","file-input btn btn-primary reemplazarFile");
     var input = $("<input>").attr("type","file").attr("tipo",event.data.tipo).attr("name","docReemplazar");
-    var nombre_input = $("<input>").attr("value",event.data.nombre).prop("hidden",true);
+    var nombre_input = $("<input>").attr("value",event.data.nombre).attr("name","nombreDocReemplazar").prop("hidden",true);
 
     span.append(input);
     span.append(nombre_input);

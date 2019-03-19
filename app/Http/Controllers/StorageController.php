@@ -50,4 +50,40 @@ class StorageController extends Controller {
         return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
       }
     }
+
+
+    public function reemplazarDocumento(Request $request,$id,$tipo,$nombreAntiguo){
+      try {
+        //obtenemos el campo file definido en el formulario
+        
+        $file = $request->file('docReemplazar');
+        
+        //creamos el nombre del archivo
+        $filename = $tipo . "_" . date('YmdHis', time()) . ".pdf";
+
+        $nombre = $file->getClientOriginalName();
+
+        $pathtoFile = public_path().'/storage/'.$nombreAntiguo;
+
+        Storage::disk('public')->delete($pathtoFile);
+        Storage::disk('public')->put($filename, file_get_contents($file));
+
+        //eliminamos el documento viejo de la base de datos
+        DB::table('documentos')->where('Ruta', $nombreAntiguo)->delete();
+
+        //guardamos el nuevo Documento en la base de datos
+        $documento = new Documento;
+        $documento->Tipo = $tipo;
+        $documento->Ruta = $filename;
+        $documento->Num_venta = $id;
+        $documento->Nombre = $nombre;
+        $documento->save();
+
+        return redirect()->back();
+      }
+       catch(Exception $e) {
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+       }
+    }
+
 }

@@ -3,7 +3,6 @@
 <div>
     <br>
 </div>
-{{hola}}
 <div id="divNuevaVenta" class="col-md-8">
        <script>
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
