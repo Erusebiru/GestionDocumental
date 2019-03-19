@@ -92,4 +92,23 @@ class ClientesController extends Controller
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
+
+
+    public function guardarVenta(Request $request){
+        try{
+            $venta = new Venta;
+			$venta->Fecha_Venta = $request->input('Fecha_Venta');
+            $venta->Estado = "Sin confirmar";
+            //$request->input('Estado');
+            $id= $request->input('Id');
+            $venta->Cliente = $id ;
+        
+            $venta->save();
+
+           return self::getCliente($id) ;
+        }
+        catch (Exception $e){ 
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+        }
+    }
 }
