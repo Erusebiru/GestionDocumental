@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',['uses' => 'ControladorClientes@getClientes', 'as' => '/']);
 
 Route::get('/', 'ClientesController@getClientes');
+
+Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
 
 Route::get('/cliente/{id}','ClientesController@getCliente');
 
@@ -31,6 +34,8 @@ Route::get('/error', function () {
 Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
 Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
+
+Route::name('venta')->get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
 
