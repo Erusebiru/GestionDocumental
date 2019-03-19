@@ -19,8 +19,8 @@ class DocumentosController extends Controller
 
         try {
 
-            $venta = Venta::where('Id',$id)->get(['Id','Fecha_venta','Estado'])[0];
-          
+            $venta = Venta::where('Id',$id)->get(['Id','Fecha_venta','Estado','Cliente'])[0];
+            
         /*  $DocumentosA = Documento::where($qAlbaran)->get(['Id','Tipo','Num_Venta','Fecha_subida','Estado','Fecha_aprovacion']);
             $DocumentosF = Documento::where($qFactura)->get(['Id','Tipo','Num_Venta','Fecha_subida','Estado','Fecha_aprovacion']);
             $DocumentosP = Documento::where($qPedido)->get(['Id','Tipo','Num_Venta','Fecha_subida','Estado','Fecha_aprovacion']);

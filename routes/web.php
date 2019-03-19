@@ -10,13 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',['uses' => 'ControladorClientes@getClientes', 'as' => '/']);
+Route::get('/',['uses' => 'ClientesController@getClientes', 'as' => '/']);
 
-Route::get('/', 'ClientesController@getClientes');
+//Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
 
-Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
-
-Route::get('/cliente/{id}','ClientesController@getCliente');
+//Route::get('/cliente/{id}','ClientesController@getCliente');
+Route::get('/cliente/{id}', ['uses' => 'ClientesController@getCliente', 'as' => 'cliente']);
 
 Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');
 
@@ -33,9 +32,9 @@ Route::get('/error', function () {
 
 Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
-Route::get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
+Route::get('/cliente/detalle/{id}',['uses' => 'DocumentosController@getDocumentos', 'as' => 'detalle']);
 
-Route::name('venta')->get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
+//Route::name('venta')->get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
 

@@ -8,7 +8,7 @@
     <div class="row">
         <h2>Detalle</h2>
     </div>
-    {{$cliente[0]}}
+    {{ Breadcrumbs::render('Detalle_Cliente',$cliente[0]['Id']) }}
     <div class="row">
         <div class="col-md-12">
             <div id="filtro">

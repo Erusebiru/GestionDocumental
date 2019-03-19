@@ -7,7 +7,7 @@
         <h1>GestionDocumental/Ventas</h1>
     </div>
     <div class="row">
-        <h2>Clientes</h2>
+            {{ Breadcrumbs::render('Clientes') }}
     </div>
     <div class="row">
         <div class="col-md-12">
