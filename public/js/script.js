@@ -80,19 +80,34 @@ function generarIconos(fila,nombre,tipo){
     var formReemplazar = $("<span>").attr("class","reemplazarFile file-input");
     $(formReemplazar).append(input);
 
-    var reemplazar = $("<i>").attr("class","fas fa-edit icono-margen iconoReemplazar");
+    var reemplazar = $("<a>").attr("href","#").attr("class","fas fa-edit icono-margen iconoReemplazar pull-right");
     //console.log(nombre);
-    reemplazar.on("click", inputVisible(nombre));
+    reemplazar.on("click",{nombre: nombre, tipo: tipo},reemplazarVisible);
+    //reemplazar.attr("data-toggle", "modal").attr("data-target", "#modalReemplazar");
     $(columnas).append(reemplazar);
-    var search = $("<a>").attr("href","/storage/"+nombre).attr("target","_blank").attr("class","fas fa-search icono-margen");
-    $(columnas).append(search);
+    var visualizar = $("<a>").attr("href","/storage/"+nombre).attr("target","_blank").attr("class","fas fa-search icono-margen");
+    $(columnas).append(visualizar);
     var download = $("<a>").attr("href","/download/"+nombre).attr("target","_blank").attr("class","fas fa-file-download icono-margen");
     $(columnas).append(download);
     $(columnas).append(formReemplazar);
     $(fila).append(columnas);
 }
 
-function inputVisible(nombre) {
-    console.log("hola");
-    //$("input[name='"+nombre+"']").prop('hidden', false);
+function reemplazarVisible(event) {
+//function crearElemento(padre, tipoElemento, texto, atributos) {
+
+    var padre = $("#reemplazarDocumento");
+    var div = $("<div>").attr("class","col-md-8 falsomodal").attr("align","center");
+    var title = $("<h1>").text("Reemplazar Documento");
+    var span = $("<span>").attr("class","file-input btn btn-primary reemplazarFile");
+    var input = $("<input>").attr("type","file").attr("tipo",event.data.tipo).attr("name","docReemplazar");
+    var nombre_input = $("<input>").attr("value",event.data.nombre).attr("name","nombreDocReemplazar").prop("hidden",true);
+
+    span.append(input);
+    span.append(nombre_input);
+    div.append(title);
+    div.append(span);
+    padre.append(div);
  };
+
+ 

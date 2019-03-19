@@ -70,6 +70,20 @@ table,td,th{
 	margin-left: 20%;
 }
 
+.falsomodal {
+	position: absolute;
+	left: 60%;
+	top: 0px;
+	margin-top: -40%;
+	z-index: 9999;
+	border: #D83F3F 3px solid;
+	background-color: white;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
 
 
 /*!

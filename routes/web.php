@@ -50,3 +50,5 @@ Route::post('/guardarVenta', 'ClientesController@guardarVenta');
 Route::get('/nuevaVenta/{id}', function ($id){
     return view('layouts.nuevaVenta',['id'=>$id]);
 });
+
+Route::post('/reemplazarDocumento/{id}/{tipo}/{nombreAntiguo}', 'StorageController@reemplazarDocumento');

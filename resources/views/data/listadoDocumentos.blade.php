@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
-    
+ 
     <div class="col-md-8">
             <h3>Pedido</h3>
             <span class="file-input btn btn-primary btn-file">
@@ -63,8 +63,10 @@
                 </div>   
         </div>
         <div id="subirArchivos"></div>
+        <div id="reemplazarArchivo"></div>
         <div class="col-md-3"  id="errores"></div>
-
+            
+        </div>
 
    <script>
         var venta = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!} ;
@@ -90,11 +92,12 @@
         $(document).on('change', '.reemplazarFile :file', function() {
             var file = $(this).prop('files')[0];
             if(validarPDF(file)){
-                var form = $('<form action="/subirDocumento/{{ $venta->Id }}" enctype="multipart/form-data" method="POST" id="subidaDocumento"></form>').appendTo("#subirArchivos");
+                var tipo = $(this).attr("tipo");
+                var nombreAntiguo = $("input[name=nombreDocReemplazar]").val();
+                var form = $('<form action="/reemplazarDocumento/{{ $venta->Id }}/'+tipo+'/'+nombreAntiguo+'" enctype="multipart/form-data" method="POST" id="reemplazarDocumento"></form>').appendTo("#reemplazarArchivo");
                 var csrfToken = $('meta[name="csrf-token"]').attr('content');
                 form.append("<input name='_token' value='" + csrfToken + "' type='hidden'>");
                 var file = $(this).prop('files')[0];
-                var tipo = $(this).attr("tipo");
                 crearElemento(form,"input",undefined,{"type":"hidden","name":"tipo","value":tipo});
                 var newDocument = $(this).clone().appendTo(form);
                 form.submit();
