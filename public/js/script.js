@@ -93,8 +93,12 @@ function generarIconos(fila,nombre,tipo){
     $(fila).append(columnas);
 }
 
+/*Función que crea un nuevo div para reemplazar el documento indicado.
+Dentro del div crearemos dos input, uno con el tipo del documento indicado
+de tipo file, con el que seleccionaremos el nuevo documento para substituir,
+y otro oculto donde guardaremos el valor de la ruta del antiguo documento
+para así poder borrarlo más tarde. */
 function reemplazarVisible(event) {
-//function crearElemento(padre, tipoElemento, texto, atributos) {
 
     var padre = $("#reemplazarDocumento");
     var div = $("<div>").attr("class","col-md-8 falsomodal").attr("align","center");
