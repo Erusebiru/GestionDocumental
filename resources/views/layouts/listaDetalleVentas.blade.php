@@ -14,11 +14,10 @@
     
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             @include('data.listadoDocumentos')            
             
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3"  id="errores"></div>
+       
     </div>
 </div>

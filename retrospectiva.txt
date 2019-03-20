@@ -21,6 +21,7 @@ Ruben
     ademas de que mientras realizaba las tareas de este sprint me apoye bastante en las tareas ya hechas
     por Yaiza ya que estaban escritas de una manera facil de entender.
 
+
 Sprint 3
 
 Ruben
@@ -30,3 +31,12 @@ Ruben
 
     Habria que hacer test mas exaustivos sobre la aplicacion.
     Debo concienciarme de que no trabajo solo y que no todo el mundo podra entender de manera intuitiva mi codigo y por lo tanto deberia esforzarme en poner indicaciones del funcionamiento del mismo.
+
+Yaiza
+
+    Como cosas a mejorar de este sprint, no nos hemos preocupado de hacer todas las pruebas necesarias antes de dar por hecha alguna especificación.
+    Deberíamos comentar más las cosas para que el compañero pueda entender nuestro código mejor.
+
+    Para mejorar estos aspectos de cara al siguiente sprint, cada vez que implementemos algo nuevo tenemos que probar que funciona correctamente cada una de las posibilidades que incluya, y además que funcione correctamente todo lo anterior.
+    Para evitar dejar las cosas sin comentar, cada vez que acabe una nueva función pondré una pequeña descripción arriba de esta para que quién necesite leer el código lo comprenda mejor.
+    

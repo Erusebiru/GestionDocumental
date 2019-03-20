@@ -9,7 +9,7 @@
     {{ Breadcrumbs::render('Nueva_Venta',$id) }}
 
     <div class="row">
-        <h2 class="containerfluidmargen">Nuevo Cliente</h2>
+        <h2 class="containerfluidmargen">Nueva Venta</h2>
     </div>
     <div class="row">
         <div class="col-md-7 col-lg-7 containerfluidmargen">
