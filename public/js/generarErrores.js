@@ -13,8 +13,8 @@ function eliminarErrores(){
 }
 
 function generarErrores(error){
-	var divError = $("<div>").attr('class','error row');
-	var div1 = $("<div>").text(error).attr('class','col m10');
+	var divError = $("<div>").attr('align','center').attr('class','error row');
+	var div1 = $("<div>").text(error).attr('class','col m3');
 	var div2 = $("<div>").attr('class','col m2');
 	var icon = $("<i>").attr('class','fas fa-exclamation-triangle');
 	$(divError).append(div1);
