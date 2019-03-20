@@ -10,9 +10,19 @@ use DB;
 class ClientesController extends Controller
 {
 
-    public function getClientes(){
+    public function getClientes(Request $request){
 		try{
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(10);
+            echo $request->get('consulta');
+            if ($request->has('consulta')){
+                $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
+                ->where('Nombre','like','%'.$request->input('consulta').'%')
+                ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
+                ->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')
+                ->paginate(10)
+                ->appends('consulta',$request->Input('consulta'));
+            }else{
+                $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(10);
+            }
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
@@ -21,7 +31,7 @@ class ClientesController extends Controller
     
     }
     
-    public function getFiltroCliente(Request $request){
+    /*public function getFiltroCliente(Request $request){
         $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
         ->where('Nombre','like','%'.$request->input('consulta').'%')
         ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
@@ -38,13 +48,21 @@ class ClientesController extends Controller
         ->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')
         ->paginate(5);
         return view("layouts.listaDetalleClientes", compact('cliente','venta'));
-    }
+    }*/
 
-    public function getCliente($id){
+    public function getCliente(Request $request,$id){
         try {
-
+            if ($request->has('consulta')){
+                $venta = Venta::select('Id','Fecha_venta','Estado')
+                ->where('Cliente',$id)
+                ->where('Estado','like','%'.$request->input('consulta').'%')
+                ->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')
+                ->paginate(5)
+                ->appends('consulta',$request->Input('consulta'));
+            }else{
+                $venta = Venta::select('Id','Fecha_venta','Estado')->where('Cliente',$id)->paginate(5);
+            }
             $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
-            $venta = Venta::select('Id','Fecha_venta','Estado')->where('Cliente',$id)->paginate(5);
             return view("layouts.listaDetalleClientes", compact('cliente','venta'));
         }
         catch(Exception $e){
@@ -66,7 +84,7 @@ class ClientesController extends Controller
             $cliente->Provincia = $request->input('Provincia');
             $cliente->save();    
             
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->get();
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(10);
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
