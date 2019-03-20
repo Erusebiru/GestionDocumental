@@ -22,7 +22,7 @@ Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');
 Route::get('/create', function () {
 	
     return view('layouts.nuevoCliente');
-});
+})->name('nuevoCliente');
 
 Route::get('/error', function () {
 	
@@ -49,6 +49,6 @@ Route::post('/guardarVenta', 'ClientesController@guardarVenta');
 
 Route::get('/nuevaVenta/{id}', function ($id){
     return view('layouts.nuevaVenta',['id'=>$id]);
-});
+})->name('nuevaVenta');
 
 Route::post('/reemplazarDocumento/{id}/{tipo}/{nombreAntiguo}', 'StorageController@reemplazarDocumento');

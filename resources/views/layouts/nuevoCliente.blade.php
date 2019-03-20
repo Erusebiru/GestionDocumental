@@ -5,6 +5,7 @@
     <div class="row">
         <h1 class="containerfluidmargen">GestionDocumental/Ventas</h1>
     </div>
+    {{ Breadcrumbs::render('Nuevo_Cliente') }}
     <div class="row">
         <h2 class="containerfluidmargen">Nuevo Cliente</h2>
     </div>
