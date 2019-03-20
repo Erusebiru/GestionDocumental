@@ -15,7 +15,9 @@ function validarCliente(){
         generarErrores("El campo email es obligatorio.")
         return false;
     }
-    if(!($("#Email").val().match("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"))){
+
+    var validacion_mail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!($("#Email").val().match(validacion_mail))){
         generarErrores("Introduzca un email correcto. (correo@ejemplo.com)")
         return false;
     }
