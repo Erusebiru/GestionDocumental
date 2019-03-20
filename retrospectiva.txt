@@ -20,3 +20,13 @@ Ruben
     Durante este segundo sprint he mejorado bastante respecto al punto que comente en el primer sprint,
     ademas de que mientras realizaba las tareas de este sprint me apoye bastante en las tareas ya hechas
     por Yaiza ya que estaban escritas de una manera facil de entender.
+
+Sprint 3
+
+Ruben
+    
+    A la hora de implementar nuevas funcionalidades en la aplicacion no he comprobado si las antiguas continuaban funcionando correctamente.
+    No comento de manera detallada el codigo que hago y eso repercute en las especificaciones de mi compañera ya que a veces no comprende el funcionamiento de partes que he realizado anteriormente.
+
+    Habria que hacer test mas exaustivos sobre la aplicacion.
+    Debo concienciarme de que no trabajo solo y que no todo el mundo podra entender de manera intuitiva mi codigo y por lo tanto deberia esforzarme en poner indicaciones del funcionamiento del mismo.

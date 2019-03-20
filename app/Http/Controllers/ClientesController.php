@@ -56,7 +56,8 @@ class ClientesController extends Controller
                 $venta = Venta::select('Id','Fecha_venta','Estado')
                 ->where('Cliente',$id)
                 ->where('Estado','like','%'.$request->input('consulta').'%')
-                ->orWhere('Fecha_venta','like','%'.$request->input('consulta').'%')
+                ->orwhere('Cliente',$id)
+                ->Where('Fecha_venta','like','%'.$request->input('consulta').'%')
                 ->paginate(5)
                 ->appends('consulta',$request->Input('consulta'));
             }else{
@@ -123,7 +124,8 @@ class ClientesController extends Controller
         
             $venta->save();
 
-           return self::getCliente($id) ;
+            return redirect()->back();
+           
         }
         catch (Exception $e){ 
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
