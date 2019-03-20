@@ -8,8 +8,9 @@ function generarTablas(padre,data,ruta,iconos){
     var cabecera = obtenerCabecera(data);
     //console.log(cabecera)
     var controlDeCabecera = 0;
-    var tabla = $("<table>");
-
+    var tabla = $("<table>").attr("class","table");
+    var thead = $("<thead>").attr("class","thead-dark");
+    $(tabla).append(thead);
     for (x in data){
         var fila = $("<tr>").attr("class","fila");
         for(y in data[x]){
@@ -20,7 +21,7 @@ function generarTablas(padre,data,ruta,iconos){
                 for(z in cabecera){
                     //console.log(cabecera[z])
                     if (cabecera[z] != "Ruta"){
-                        $(tabla).append($("<th>").text(cabecera[z]))
+                        $(thead).append($("<th>").text(cabecera[z]))
                     }
                 }
 
@@ -40,7 +41,7 @@ function generarTablas(padre,data,ruta,iconos){
             // Fin Cuerpo
         }
         if (iconos=="Si"){
-
+            $(thead).append($("<th>").text(" "));
             generarIconos(fila,data[x]["Ruta"],tipo);    
         }
         $(tabla).append(fila);

@@ -1,6 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
- 
     <div class="col-md-8">
         <h3>Pedido</h3>
         <span class="file-input btn btn-primary btn-file">
@@ -70,7 +69,6 @@
     <div class="col-md-3"  id="errores"></div>
         
     </div>
-
    <script>
        //Recoge los datos de $venta y los convierte en un array
         var venta = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!} ;
@@ -128,8 +126,5 @@
             else {
                 return false;
             }   
-        }
-
-
-        
+        }        
     </script>

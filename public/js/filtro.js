@@ -3,6 +3,6 @@ function generarFiltro(padre,action){
     $(formulario).attr('action',action).attr('method','get');
     var csrf = $('meta[name="csrf-token"]').attr('content');
     $(formulario).append($('<input>').attr('type','text').attr('name','consulta'));
-    $(formulario).append($('<button>').attr('type','submit').text('Filtrar'));
+    $(formulario).append($('<button>').attr('type','submit').attr("class","filtro").text('Filtrar'));
     $(padre).append(formulario);
 }

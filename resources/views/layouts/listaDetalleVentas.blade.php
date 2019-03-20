@@ -2,7 +2,7 @@
 @include('base')
 @include('components.user')
 <div class="col-md-8" id="reemplazarDocumento">
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!-- Titulo  -->
         <h1>GestionDocumental/Ventas</h1>
