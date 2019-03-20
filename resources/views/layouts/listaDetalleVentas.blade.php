@@ -9,6 +9,7 @@
     <div class="row">
         <h2 class="containerfluidmargen">Detalle<!-- Pasar por POST el nombre del cliente + el id del pedido--></h2>
     </div>
+    {{ Breadcrumbs::render('Venta',$venta['Cliente'],$venta['Id'] ) }}
     
     <div class="row">
 
