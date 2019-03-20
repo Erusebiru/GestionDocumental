@@ -21,13 +21,8 @@
                         <input type="date" class="form-control" name="Fecha_Venta" id="Fecha_Venta">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="Estado">Estado:</label>
-                        <select class="form-control" name="Estado">
-                            <option name="Sin_confirmar">Sin confirmar</option>
-                            <option name="Confirmada">Confirmada</option>
-                            <option name="Finalizada">Finalizada</option>
-                        </select>
-                    </div>
+                        <label for="Descripcion">Descripcion:</label>
+                        <input type="text" class="form-control" name="Descripcion">
                 </div>
                 <input hidden type="text" name="Id" value={{$id}}>
                 <input type="submit" class="btn btn-primary" value="Crear venta">
