@@ -114,20 +114,20 @@ class ClientesController extends Controller
 
 
     public function guardarVenta(Request $request){
-        //try{
+        try{
             $venta = new Venta;
 			$venta->Fecha_Venta = $request->input('Fecha_Venta');
             $venta->Estado = "Sin confirmar";
-            //$request->input('Estado');
+            $venta->Descripcion = $request->input('Descripcion');
             $id= $request->input('Id');
             $venta->Cliente = $id ;
         
             $venta->save();
 
            return redirect()->back();
-        /*}
+        }
         catch (Exception $e){ 
             return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
-        }*/
+        }
     }
 }

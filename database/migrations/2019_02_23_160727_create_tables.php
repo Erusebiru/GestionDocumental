@@ -40,6 +40,7 @@ class CreateTables extends Migration
             $table->increments('Id')->unique();
             $table->date('Fecha_venta');
             $table->string('Estado');
+            $table->string('Descripcion')->default("");
             $table->timestamps();
             $table->integer('Cliente')->unsigned(); 
             $table->foreign('Cliente')->references('Id')->on('clientes');        
@@ -50,7 +51,6 @@ class CreateTables extends Migration
             $table->string('Tipo');
             $table->integer('Num_venta')->unsigned();
             $table->string('Nombre');
-            $table->string('Descripcion');
             $table->foreign('Num_venta')->references('Id')->on('ventas');
             $table->string('Ruta');
             $table->timestamps();

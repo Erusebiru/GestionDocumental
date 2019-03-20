@@ -37,14 +37,14 @@
             }
         }
     }
-    var boton = $("<button>").attr('onclick','validarFormulario()').text("Guardar cambios");
+    var boton = $("<button>").attr('onclick','validarFormulario();return false;').text("Guardar cambios");
     $(form).append(boton);
     $("#formulario").append(form);
 }
 
 function validarFormulario(){
         if (validarCliente()==true){
-            $("#formModificarCliente").submit();
+            submit();
         }
     }
 </script>

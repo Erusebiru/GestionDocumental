@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Descripcion">Descripcion:</label>
-                        <input type="text" class="form-control" name="Descripcion">
+                        <input type="text" class="form-control" name="Descripcion" maxlength='100'>
                 </div>
                 <input hidden type="text" name="Id" value={{$id}}>
                 <input type="submit" class="btn btn-primary" value="Crear venta">
