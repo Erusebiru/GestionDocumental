@@ -42,7 +42,7 @@ function generarTablas(padre,data,ruta,iconos){
         }
         if (iconos=="Si"){
             $(thead).append($("<th>").text(" "));
-            generarIconos(fila,data[x]["Ruta"],tipo);    
+            generarIconos(fila,data[x]["Ruta"],tipo,data[x]["Nombre"]);    
         }
         $(tabla).append(fila);
     }
@@ -74,21 +74,21 @@ function crearElemento(padre, tipoElemento, texto, atributos) {
     return nuevoElemento;
 }
 
-function generarIconos(fila,nombre,tipo){
+function generarIconos(fila,nombre,tipo,nombreReal){
     
     var columnas = $("<td>");
     var input = $("<input>").attr("type","file").attr("name",nombre).attr("tipo",tipo).prop('hidden', true);;
     var formReemplazar = $("<span>").attr("class","reemplazarFile file-input");
     $(formReemplazar).append(input);
 
-    var reemplazar = $("<a>").attr("href","#").attr("class","fas fa-edit icono-margen iconoReemplazar pull-right");
+    var reemplazar = $("<a>").attr("href","#").attr("class","fas fa-edit icono-margen iconoReemplazar pull-right").attr("name","iconoReemplazar");
     //console.log(nombre);
     reemplazar.on("click",{nombre: nombre, tipo: tipo},reemplazarVisible);
     //reemplazar.attr("data-toggle", "modal").attr("data-target", "#modalReemplazar");
     $(columnas).append(reemplazar);
     var visualizar = $("<a>").attr("href","/storage/"+nombre).attr("target","_blank").attr("class","fas fa-search icono-margen");
     $(columnas).append(visualizar);
-    var download = $("<a>").attr("href","/download/"+nombre).attr("target","_blank").attr("class","fas fa-file-download icono-margen");
+    var download = $("<a>").attr("href","/download/"+nombre+"/"+nombreReal).attr("target","_blank").attr("class","fas fa-file-download icono-margen");
     $(columnas).append(download);
     $(columnas).append(formReemplazar);
     $(fila).append(columnas);
@@ -100,19 +100,22 @@ de tipo file, con el que seleccionaremos el nuevo documento para substituir,
 y otro oculto donde guardaremos el valor de la ruta del antiguo documento
 para así poder borrarlo más tarde. */
 function reemplazarVisible(event) {
-
+    eliminar();
     var padre = $("#reemplazarDocumento");
-    var div = $("<div>").attr("class","col-md-8 falsomodal").attr("align","center");
-    var title = $("<h1>").text("Reemplazar Documento");
-    var span = $("<span>").attr("class","file-input btn btn-primary reemplazarFile");
-    var input = $("<input>").attr("type","file").attr("tipo",event.data.tipo).attr("name","docReemplazar");
-    var nombre_input = $("<input>").attr("value",event.data.nombre).attr("name","nombreDocReemplazar").prop("hidden",true);
-
+    var div = $("<div>").attr("class","col-md-8 falsomodal");
+    var cerrar = $("<span>").text("x").attr("class","cerrarModal").attr("align","right").on("click",eliminar);
+    var title = $("<h1>").text("Reemplazar Documento").attr("class","titulomodal").attr("align","center");
+    var span = $("<span>").attr("class","file-input btn btn-primary reemplazarFile").attr("align","center");
+    var input = $("<input>").attr("type","file").attr("tipo",event.data.tipo).attr("name","docReemplazar").attr("align","center").attr("class","elementModal");
+    var nombre_input = $("<input>").attr("value",event.data.nombre).attr("name","nombreDocReemplazar").prop("hidden",true).attr("align","center");
     span.append(input);
     span.append(nombre_input);
+    div.append(cerrar);
     div.append(title);
     div.append(span);
     padre.append(div);
  };
 
- 
+ function eliminar() {
+    $(".falsomodal").remove();
+ }

@@ -79,10 +79,31 @@ table,td,th{
 	z-index: 9999;
 	border: #BF96E1 3px solid;
 	background-color: white;
-	padding-top: 5%;
+	/*padding-top: 5%;*/
 	padding-bottom: 5%;
 	padding-left: 10%;
 	padding-right: 10%;
+}
+
+.titulomodal, .reemplazarFile {
+	padding-top: 5%;
+	float: center;
+}
+
+.reemplazarFile {
+	margin-left: 25%;
+}
+
+.cerrarModal {
+top: 0px;
+right: 0px;
+margin-right : 0px;
+float: right;
+}
+
+.cerrarModal:hover {
+	color: #C300FF;
+	font-size: 16px;
 }
 
 .filtro {

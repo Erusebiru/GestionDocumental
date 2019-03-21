@@ -42,7 +42,7 @@ Route::post('/', 'ClientesController@getFiltroCliente');
 
 Route::post('/cliente/{id}', 'ClientesController@getFiltroVenta');
 
-Route::get('/download/{nombre}' , 'StorageController@descargarDocumento');
+Route::get('/download/{nombre}/{nombreReal}' , 'StorageController@descargarDocumento');
 
 Route::post('/guardarVenta', 'ClientesController@guardarVenta');
 
