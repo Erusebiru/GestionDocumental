@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',['uses' => 'ClientesController@getClientes', 'as' => '/']);
+Route::get('/',['uses' => 'ClientesController@getClientesApi', 'as' => '/']);
 
 //Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
 

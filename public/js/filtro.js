@@ -1,8 +1,4 @@
 function generarFiltro(padre,action){
-    var formulario = $('<form>');
-    $(formulario).attr('action',action).attr('method','get');
-    var csrf = $('meta[name="csrf-token"]').attr('content');
-    $(formulario).append($('<input>').attr('type','text').attr('name','consulta'));
-    $(formulario).append($('<button>').attr('type','submit').attr("class","filtro").text('Filtrar'));
-    $(padre).append(formulario);
+    $(padre).append($('<input>').attr('type','text').attr('name','consulta'));
+    $(padre).append($('<button>').attr({"class":"filtro"}).text('Filtrar'));
 }

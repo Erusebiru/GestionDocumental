@@ -4,9 +4,7 @@ function redirigir(event){
 }
 
 function generarTablas(padre,data,ruta,iconos){
-    console.log(data);
     var cabecera = obtenerCabecera(data);
-    //console.log(cabecera)
     var controlDeCabecera = 0;
     var tabla = $("<table>").attr("class","table");
     var thead = $("<thead>").attr("class","thead-dark");
@@ -14,12 +12,9 @@ function generarTablas(padre,data,ruta,iconos){
     for (x in data){
         var fila = $("<tr>").attr("class","fila");
         for(y in data[x]){
-            //console.log(data[x][y]);
             // Generar cabecera de la tabla de datos
             if(controlDeCabecera==0){
-                //console.log(cabecera)
                 for(z in cabecera){
-                    //console.log(cabecera[z])
                     if (cabecera[z] != "Ruta"){
                         $(thead).append($("<th>").text(cabecera[z]))
                     }
@@ -82,7 +77,6 @@ function generarIconos(fila,nombre,tipo,nombreReal){
     $(formReemplazar).append(input);
 
     var reemplazar = $("<a>").attr("href","#").attr("class","fas fa-edit icono-margen iconoReemplazar pull-right").attr("name","iconoReemplazar");
-    //console.log(nombre);
     reemplazar.on("click",{nombre: nombre, tipo: tipo},reemplazarVisible);
     //reemplazar.attr("data-toggle", "modal").attr("data-target", "#modalReemplazar");
     $(columnas).append(reemplazar);
