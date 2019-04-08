@@ -1,7 +1,91 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 <meta name="csrf-token" content="{{csrf_token()}}">
-
+<style>
+    .lds-spinner {
+        color: black !important;
+        display: inline-block;
+        position: relative;
+        width: 32px;
+        height: 32px;
+    }
+    .lds-spinner div {
+        transform-origin: 32px 32px;
+        animation: lds-spinner 1.2s linear infinite;
+        color: black !important;
+    }
+    .lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 29px;
+    width: 5px;
+    height: 14px;
+    border-radius: 20%;
+    background: black;
+    }
+    .lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+    }
+    .lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+    }
+    .lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+    }
+    .lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+    }
+    .lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+    }
+    .lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+    }
+    .lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+    }
+    .lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+    }
+    .lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+    }
+    .lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+    }
+    .lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+    }
+    .lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+    }
+    @keyframes lds-spinner {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    .loader{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
 <div id="divClientes"></div>
 <div id="prueba"></div>
@@ -52,16 +136,15 @@
     }
     
     $(document).ready(function() {
-        var url = '/';
         $(document).on('click', '.pagination a', function (e) {
             e.preventDefault();
             var page =  $(this).attr('href').split('page=')[1];
-            getData(url,page,'get');
+            getData('/',page,'get');
         });
 
         $(document).on('click','.filtro',function(e){
             e.preventDefault();
-            getData("/",undefined,'post');
+            getData('/',undefined,'post');
 
         });
 
@@ -72,21 +155,23 @@
 
         
         var numPagina = 1;
-        getData(url,numPagina,'get');
+        getData('/',numPagina,'get');
     });
+
     function getData(url,page,method) {
-        var consulta = "";
-        if($('[name="consulta"]').val() != ""){
-            consulta = $('[name="consulta"]').val();
-        }
+        var consulta = $('[name="consulta"]').val();
+
         if(page === undefined){
             page = location.hash.split('#')[1]
         }
 
         $.ajax({
             url : url + '#' + page,
-            dataType: 'json',
             data: {'consulta':consulta,'page':page,"_token": "{{ csrf_token() }}"},
+            beforeSend: function(){
+                $('#usuarios').empty();
+                $('<div class="loader"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>').appendTo('#usuarios');
+            },
             success: function(result){
                 location.hash = page;
                 

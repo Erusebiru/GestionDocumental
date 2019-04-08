@@ -111,6 +111,10 @@ float: right;
 	border-radius: 5%;
 }
 
+.fila:hover {
+    cursor: pointer;
+}
+
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
