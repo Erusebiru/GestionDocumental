@@ -87,10 +87,10 @@
     }
 </style>
 
-<div id="divClientes"></div>
 <div id="prueba"></div>
 
 <script>
+
     $('#prueba').text(Math.random(1,20))
 
     $(window).on('hashchange', function() {
@@ -98,8 +98,6 @@
             var page = window.location.hash.replace('#', '');
             if (page == Number.NaN || page <= 0) {
                 return false;
-            } else {
-                //getPosts(page);
             }
         }
     });
@@ -139,30 +137,34 @@
         $(document).on('click', '.pagination a', function (e) {
             e.preventDefault();
             var page =  $(this).attr('href').split('page=')[1];
-            getData('/',page,'get');
+            getData('/',page,"");
         });
 
         $(document).on('click','.filtro',function(e){
             e.preventDefault();
-            getData('/',undefined,'post');
+            var consulta = $('[name="consulta"]').val();
+            getData('/',1,consulta);
+        });
 
+        $(document).on('click','.resetFiltro',function(e){
+            e.preventDefault();
+            getData('/',1,"");
         });
 
         $(document).on('click','.btn.create',function(e){
             e.preventDefault();
             window.location.href = '/create';
         });
-
         
-        var numPagina = 1;
-        getData('/',numPagina,'get');
+        var clientes = {!! json_encode($clientes, JSON_HEX_TAG) !!} ;
+        generarTablas("#usuarios",clientes.data,"/cliente/");
+
     });
 
-    function getData(url,page,method) {
-        var consulta = $('[name="consulta"]').val();
+    function getData(url,page,consulta) {
 
         if(page === undefined){
-            page = location.hash.split('#')[1]
+            page = location.hash.split('#')[1];
         }
 
         $.ajax({
@@ -183,7 +185,7 @@
             },
             error: function(result){
                 return false;
-                alert('Posts could not be loaded.');
+                alert('Ha ocurrido un error.');
             }
         });
     }

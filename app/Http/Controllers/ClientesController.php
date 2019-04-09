@@ -51,7 +51,7 @@ class ClientesController extends Controller
             return Response::json($clientes);
         }
        
-        return View::make('layouts.listaClientes', array('clientes' => $clientes));
+        return view("layouts.listaClientes", compact('clientes'));
     }
 
     public function getCliente(Request $request,$id){
