@@ -12,20 +12,15 @@
 */
 Route::get('/',['uses' => 'ClientesController@getClientesApi', 'as' => '/']);
 
-//Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
-
-//Route::get('/cliente/{id}','ClientesController@getCliente');
 Route::get('/cliente/{id}', ['uses' => 'ClientesController@getCliente', 'as' => 'cliente']);
 
 Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');
 
 Route::get('/create', function () {
-	
     return view('layouts.nuevoCliente');
 })->name('nuevoCliente');
 
 Route::get('/error', function () {
-	
     return view('layouts.error');
 });
 
@@ -33,8 +28,6 @@ Route::get('/error', function () {
 Route::post('/guardarCliente', 'ClientesController@guardarCliente');
 
 Route::get('/cliente/detalle/{id}',['uses' => 'DocumentosController@getDocumentos', 'as' => 'detalle']);
-
-//Route::name('venta')->get('/cliente/detalle/{id}', 'DocumentosController@getDocumentos');
 
 Route::post('/subirDocumento/{id}', 'StorageController@subirDocumento');
 
