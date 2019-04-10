@@ -49,7 +49,6 @@ class ClientesController extends Controller
         if ($request->ajax()) {
             return $clientes;
         }
-       
         return view("layouts.listaClientes", compact('clientes'));
     }
 
