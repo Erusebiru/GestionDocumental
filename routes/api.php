@@ -14,3 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/clientes', 'ClientesController@getClientesApi');
+
+Route::get('/cliente/{id}','ClientesController@getCliente');
