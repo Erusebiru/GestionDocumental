@@ -6,46 +6,21 @@ use Illuminate\Http\Request;
 use App\Cliente;
 use App\Venta;
 use DB;
-use Illuminate\Support\Facades\Response; 
-use View;
 
 class ClientesController extends Controller
 {
-
-    /*public function getClientes(Request $request){
-		try{
-            if ($request->has('consulta')){
-                $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
-                ->where('Nombre','like','%'.$request->input('consulta').'%')
-                ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
-                ->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')
-                ->paginate(10)
-                ->appends('consulta',$request->Input('consulta'));
-            }else{
-                $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(10);
-            }
-            return view("layouts.listaClientes", compact('clientes'));
-        }
-        catch (Exception $e){ 
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
-        }
-
-        return view("layouts.listaClientes");
-        
-    }*/
-
     public function getClientesApi(Request $request){
         if ($request->has('consulta')){
             $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
                 ->where('Nombre','like','%'.$request->input('consulta').'%')
                 ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
                 ->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')
-                ->paginate(1)
+                ->paginate(5)
                 ->appends('consulta',$request->Input('consulta'));
         }else{
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(1);
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(5);
         }
-        //return Response::json($clientes);
+
         if ($request->ajax()) {
             return $clientes;
         }

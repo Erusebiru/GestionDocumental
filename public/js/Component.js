@@ -29,10 +29,10 @@ function createPaginationLinks(data){
         createLiWithLink(ul,'‹‹',{'li':{'class':'page-item'},'a':{'href':data.path+'?page=' + previousPage,'class':'page-link'}},data)
     }
 
-    for (var i = 1; i <= data.total; i++) {
+    for (var i = 1; i <= data.last_page; i++) {
         if(data.current_page == i){
             createLiWithSpan(ul,i,{li:{'class':'page-item active'},span:{'class':'page-link'}},data)
-        }else{
+        }else{    
             createLiWithLink(ul,i,{li:{'class':'page-item'},a:{'href':data.path + '?page=' + i ,'class':'page-link'}},data)
         }
     }
