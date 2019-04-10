@@ -12,9 +12,6 @@
 */
 Route::get('/',['uses' => 'ClientesController@getClientesApi', 'as' => '/']);
 
-//Route::name('cliente')->get('/cliente/{id}', 'ClientesController@getCliente');
-
-//Route::get('/cliente/{id}','ClientesController@getCliente');
 Route::get('/cliente/{id}', ['uses' => 'ClientesController@getCliente', 'as' => 'cliente']);
 
 Route::post('/cliente/guardarCambios/{id}','ClientesController@guardarCambios');

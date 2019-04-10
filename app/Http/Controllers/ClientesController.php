@@ -35,7 +35,6 @@ class ClientesController extends Controller
     }*/
 
     public function getClientesApi(Request $request){
-        
         if ($request->has('consulta')){
             $clientes = Cliente::select('Id', 'Nombre','NIF_CIF','Localidad')
                 ->where('Nombre','like','%'.$request->input('consulta').'%')
@@ -48,7 +47,7 @@ class ClientesController extends Controller
         }
         //return Response::json($clientes);
         if ($request->ajax()) {
-            return Response::json($clientes);
+            return $clientes;
         }
        
         return view("layouts.listaClientes", compact('clientes'));
