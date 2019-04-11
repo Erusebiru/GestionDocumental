@@ -11,28 +11,28 @@
         $(document).on('click','.pagination a',function(e) {
             e.preventDefault();
             var page =  $(this).attr('href').split('page=')[1];
-            getData('#usuarios','/gescliadm/api/clientes',{'consulta':'','page':page,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/api/clientes',{'consulta':'','page':page,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.filtro',function(e){
             e.preventDefault();
             var consulta = $('[name="consulta"]').val();
-            getData('#usuarios','/gescliadm/api/clientes',{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/api/clientes',{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.resetFiltro',function(e){
             e.preventDefault();
             $('[name="consulta"]').val("");
-            getData('#usuarios','/gescliadm/api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.btn.create',function(e){
             e.preventDefault();
-            window.location.href = '/gescliadm/create';
+            window.location.href = 'create';
         });
         
         var clientes = {!! json_encode($clientes, JSON_HEX_TAG) !!} ;
-        generarTablas("#usuarios",clientes.data,"/gescliadm/cliente/");
+        generarTablas("#usuarios",clientes.data,"/cliente/");
         createPaginationLinks(clientes);
 
     });
