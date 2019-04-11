@@ -8,6 +8,7 @@
     //$('#prueba').text(Math.random(1,20));
 
     $(document).ready(function() {
+        console.log(window.location)
         $(document).on('click','.pagination a',function(e) {
             e.preventDefault();
             var page =  $(this).attr('href').split('page=')[1];
