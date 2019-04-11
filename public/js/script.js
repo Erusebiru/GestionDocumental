@@ -1,6 +1,5 @@
 
 function redirigir(event){
-    alert(event.data.url)
     window.location = event.data.url;
 }
 
