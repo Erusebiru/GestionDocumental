@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/clientes', 'ClientesController@getClientesApi');
+Route::get('/gescliadm/clientes', 'ClientesController@getClientesApi');

@@ -6,7 +6,7 @@
 <div id="divNuevaVenta" class="col-md-8">
        <script>
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
-            var link = $("<a>").attr("href","/nuevaVenta/"+cliente["Id"]).text("Nueva Venta").attr("class","btn btn-primary nuevaVentaBtn");
+            var link = $("<a>").attr("href","/gescliadm/nuevaVenta/"+cliente["Id"]).text("Nueva Venta").attr("class","btn btn-primary nuevaVentaBtn");
             $("#divNuevaVenta").append(link);
        </script>
        <div class="col-md-8"><br></div>
@@ -15,7 +15,7 @@
 <div id="prueba2"></div>
 <script>
     var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!}['data'];
-    generarTablas("#prueba2",ventas,"/cliente/detalle/");
+    generarTablas("#prueba2",ventas,"/gescliadm/cliente/detalle/");
 </script>
 
 

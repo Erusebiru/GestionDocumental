@@ -28,11 +28,11 @@
 
         $(document).on('click','.btn.create',function(e){
             e.preventDefault();
-            window.location.href = '/create';
+            window.location.href = '/gescliadm/create';
         });
         
         var clientes = {!! json_encode($clientes, JSON_HEX_TAG) !!} ;
-        generarTablas("#usuarios",clientes.data,"/cliente/");
+        generarTablas("#usuarios",clientes.data,"/gescliadm/cliente/");
         createPaginationLinks(clientes);
 
     });
