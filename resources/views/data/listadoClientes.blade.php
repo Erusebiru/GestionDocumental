@@ -11,19 +11,19 @@
         $(document).on('click','.pagination a',function(e) {
             e.preventDefault();
             var page =  $(this).attr('href').split('page=')[1];
-            getData('#usuarios','/api/clientes',{'consulta':'','page':page,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/gescliadm/api/clientes',{'consulta':'','page':page,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.filtro',function(e){
             e.preventDefault();
             var consulta = $('[name="consulta"]').val();
-            getData('#usuarios','/api/clientes',{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/gescliadm/api/clientes',{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.resetFiltro',function(e){
             e.preventDefault();
             $('[name="consulta"]').val("");
-            getData('#usuarios','/api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios','/gescliadm/api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.btn.create',function(e){

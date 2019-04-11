@@ -44,7 +44,7 @@ class ClientesController extends Controller
             return view("layouts.listaDetalleClientes", compact('cliente','venta'));
         }
         catch(Exception $e){
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+            return redirect()->to('/gescliadm/error')->withErrors(['Error'=>'Error del servidor']);
 		}
     }
 
@@ -66,7 +66,7 @@ class ClientesController extends Controller
             return view("layouts.listaClientes", compact('clientes'));
         }
         catch (Exception $e){ 
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+            return redirect()->to('/gescliadm/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
 
@@ -85,7 +85,7 @@ class ClientesController extends Controller
             return redirect()->back();
         }
         catch(Exception $e){
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+            return redirect()->to('/gescliadm/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
 
@@ -104,7 +104,7 @@ class ClientesController extends Controller
            return redirect()->back();
         }
         catch (Exception $e){ 
-            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+            return redirect()->to('/gescliadm/error')->withErrors(['Error'=>'Error del servidor']);
         }
     }
 }
