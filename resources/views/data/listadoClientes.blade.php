@@ -32,7 +32,7 @@
         });
         
         var clientes = {!! json_encode($clientes, JSON_HEX_TAG) !!} ;
-        generarTablas("#usuarios",clientes.data,"cliente/");
+        generarTablas("#usuarios",clientes.data,clientes.path+"/cliente/");
         createPaginationLinks(clientes);
 
     });
