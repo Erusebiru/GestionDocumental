@@ -55,7 +55,7 @@ function getData(target,url,data) {
         },
         success: function(result){
             $(target).empty();
-            generarTablas(target,result.data,"/cliente/");
+            generarTablas(target,result.data,window.location.pathname + "cliente/");
             createPaginationLinks(result)
         },
         error: function(result){
