@@ -15,8 +15,9 @@
 <div id="divVentaCliente"></div>
 <div id="prueba2"></div>
 <script>
-    var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!}['data'];
-    generarTablas("#prueba2",ventas,window.location.pathname+"cliente/detalle/");
+    var ventas = {!! json_encode($venta->toArray(), JSON_HEX_TAG) !!};
+    generarTablas("#prueba2",ventas.data,window.location.pathname+"cliente/detalle/");
+    console.log(window.location)
 </script>
 
 
