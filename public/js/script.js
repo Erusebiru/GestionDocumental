@@ -1,7 +1,7 @@
 
 function redirigir(event){
-    console.log(event.data.url)
-    //window.location = event.data.url;
+    alert(event.data.url)
+    window.location = event.data.url;
 }
 
 function generarTablas(padre,data,ruta,iconos){
