@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/gescliadm',['uses' => 'ClientesController@getClientesApi', 'as' => '/']);
+Route::get('/',['uses' => 'ClientesController@getClientesApi', 'as' => '/']);
 
 Route::get('/gescliadm/cliente/{id}', ['uses' => 'ClientesController@getCliente', 'as' => 'cliente']);
 
