@@ -5,8 +5,9 @@
 </div>
 <div id="divNuevaVenta" class="col-md-8">
        <script>
+       
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
-            var link = $("<a>").attr("href",window.location.path+"/nuevaVenta/"+cliente["Id"]).text("Nueva Venta").attr("class","btn btn-primary nuevaVentaBtn");
+            var link = $("<a>").attr("href",window.location.pathname+"/nuevaVenta/"+cliente["Id"]).text("Nueva Venta").attr("class","btn btn-primary nuevaVentaBtn");
             $("#divNuevaVenta").append(link);
        </script>
        <div class="col-md-8"><br></div>
