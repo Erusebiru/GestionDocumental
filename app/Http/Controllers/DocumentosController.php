@@ -17,7 +17,7 @@ class DocumentosController extends Controller
         $qDocumentoY = ['Num_venta'=>$id , 'Tipo'=>'DocumentoY'];
         $qDocumentoX = ['Num_venta'=>$id , 'Tipo'=>'DocumentoX'];
 
-
+        try {
 
             $venta = Venta::where('Id',$id)->get(['Id','Fecha_venta','Estado','Cliente'])[0];
             $DocumentosA = Documento::where($qAlbaran)->get(['Id','Tipo','Num_Venta','Ruta','Nombre']);
@@ -26,8 +26,10 @@ class DocumentosController extends Controller
             $DocumentosY = Documento::where($qDocumentoY)->get(['Id','Tipo','Num_Venta','Ruta','Nombre']);
             $DocumentosX = Documento::where($qDocumentoX)->get(['Id','Tipo','Num_Venta','Ruta','Nombre']);
             return view("layouts.listaDetalleVentas", compact('venta','DocumentosA','DocumentosF','DocumentosP','DocumentosY','DocumentosX'));
-        
-
+        }
+        catch(Exception $e){
+            return redirect()->to('/error')->withErrors(['Error'=>'Error del servidor']);
+		}
     }
 
 }
