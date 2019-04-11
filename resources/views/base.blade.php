@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="{{ asset('js/generarErrores.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/validaciones.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/component.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/Component.js') }}"></script>
 	<meta name="csrf-token" content="{{csrf_token()}}">
 </head>
 <body>
