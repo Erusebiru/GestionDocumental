@@ -2,9 +2,9 @@
 @include('base')
 @include('components.user')
 <div class="container">
-   <!-- <div class="row">
-        <h1>GestionDocumental/Ventas</h1>
-    </div> -->
+    <div class="row">
+        <h1>GestionDocumental/Clientes</h1>
+    </div>
     <div class="row">
             {{ Breadcrumbs::render('Clientes') }}
     </div>

@@ -77,6 +77,10 @@ animation-delay: 0s;
         opacity: 0;
     }
 }
+
+.loader{
+    height:80px;
+}
 .loader,#links{
     display: flex;
     justify-content: center;
