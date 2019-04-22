@@ -24,7 +24,7 @@
         $(document).on('click','.resetFiltro',function(e){
             e.preventDefault();
             $('[name="consulta"]').val("");
-            getData('#usuarios','/api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
+            getData('#usuarios',window.location.pathname + 'api/clientes',{'consulta':'','page':1,"_token": "{{ csrf_token() }}"});
         });
 
         $(document).on('click','.btn.create',function(e){
