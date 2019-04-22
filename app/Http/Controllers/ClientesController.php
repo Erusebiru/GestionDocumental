@@ -41,6 +41,7 @@ class ClientesController extends Controller
                 $venta = Venta::select('Id','Fecha_venta','Estado')->where('Cliente',$id)->paginate(5);
             }
             $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
+            
             if ($request->ajax()) {
                 return ($venta);
                 
