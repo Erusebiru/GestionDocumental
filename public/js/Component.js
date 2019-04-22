@@ -59,9 +59,15 @@ function getData(target,url,data) {
             createPaginationLinks(result)
         },
         error: function(result){
+<<<<<<< HEAD
             console.log(result);
             return false;
             console.log('Ha ocurrido un error.');
+=======
+            $(target).empty();
+            $("#links").empty();
+            generarErrores("Error de servidor");
+>>>>>>> 5c2e4576800a960629f8ea7e424bfbab5aa90721
         }
     });
 }

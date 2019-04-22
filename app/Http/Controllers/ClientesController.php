@@ -15,10 +15,10 @@ class ClientesController extends Controller
                 ->where('Nombre','like','%'.$request->input('consulta').'%')
                 ->orWhere('Localidad','like','%'.$request->input('consulta').'%')
                 ->orWhere('NIF_CIF','like','%'.$request->input('consulta').'%')
-                ->paginate(5)
+                ->paginate(3)
                 ->appends('consulta',$request->Input('consulta'));
         }else{
-            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(5);
+            $clientes = DB::table('clientes')->select('Id', 'Nombre','NIF_CIF','Localidad')->paginate(3);
         }
 
         if ($request->ajax()) {
