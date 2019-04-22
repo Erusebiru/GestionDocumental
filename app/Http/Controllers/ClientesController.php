@@ -42,7 +42,7 @@ class ClientesController extends Controller
             }
             $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
             if ($request->ajax()) {
-                return Response::json($cliente);
+                return ($venta);
                 
             }
             return view("layouts.listaDetalleClientes", compact('cliente','venta'));

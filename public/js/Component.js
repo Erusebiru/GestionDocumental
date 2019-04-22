@@ -59,6 +59,7 @@ function getData(target,url,data) {
             createPaginationLinks(result)
         },
         error: function(result){
+            console.log(result);
             return false;
             console.log('Ha ocurrido un error.');
         }
