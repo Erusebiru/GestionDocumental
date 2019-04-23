@@ -28,7 +28,27 @@
 		            e.preventDefault();
 		            getData('#prueba2','/api'+MiId,{'consulta':"",'page':1,"_token": "{{ csrf_token() }}"});
 		        });
+
+              $(document).on('submit','#form',function(e){
+                e.preventDefault();
+                  var MiId=window.location.pathname;
+                  var form = {
+                    Nombre:$('#Nombre').val();
+                    Email:$('#Email').val();
+                    CP:$('#CP').val();
+                    Nif:$('#NIF_CIF').val();
+                    Telefono:$('#Telefono').val();
+                    Direccion:$('#Direccion').val();
+                    Provincia:$('#Provincia').val();
+                    Localidad:$('#Localidad').val();
+                  }
+                  e.preventDefault();
+                  UpdateData('#form','/api/update'+MiId,form );
+              });
     		});
+
+
+
 
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
             var link = $("<a>").attr("href","/nuevaVenta/"+cliente["Id"]).text("Nueva Venta").attr("class","btn btn-primary nuevaVentaBtn");
