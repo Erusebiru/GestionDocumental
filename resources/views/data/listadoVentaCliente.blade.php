@@ -1,5 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>	
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 <div>
     <br>
 </div>
@@ -24,17 +24,17 @@
 		        $(document).on('click','.resetFiltro',function(e){
                      var MiId= window.location.pathname;
 		            e.preventDefault();
-		            getData('#prueba2','/api'+MiId,{'consulta':"",'page':1,"_token": "{{ csrf_token() }}"});
+					getData('#prueba2','/api'+MiId,{'consulta':"",'page':1,"_token": "{{ csrf_token() }}"});
 		        });
 
             	$('#form').on('submit',function(e){
 					e.preventDefault();
-					if (validarCliente()){
+					
 						var MiId=window.location.pathname;
 						var form = $('#form');
 						
 						UpdateData('#formulario','/api/update'+MiId,$('#form').serialize() );
-					}
+					
 				});
     		});
 

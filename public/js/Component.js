@@ -59,7 +59,7 @@ function UpdateData(target,url,data) {
             $('<span>').attr({'class':'updated'}).text('Cambios guardados correctamente').appendTo(target);
         },
         error: function(result){
-            generarErrores("Error de servidor");
+            generarErrores(result);
         }
     });
 }
@@ -78,8 +78,6 @@ function getData(target,url,data) {
             createPaginationLinks(result)
         },
         error: function(result){
-            $(target).empty();
-            $("#links").empty();
             generarErrores("Error de servidor");
         }
     });
