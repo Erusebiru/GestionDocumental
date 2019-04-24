@@ -14,20 +14,27 @@
 		            getData('#prueba2','/api'+MiId,{'consulta':"",'page':page,"_token": "{{ csrf_token() }}"});
 		        });
 	       		$(document).on('click','.filtro',function(e){
-	            e.preventDefault();
-	            var consulta = $('[name="consulta"]').val();
+	            	e.preventDefault();
+					var	consulta = $('[name="consulta"]').val();
+                	var MiId= window.location.pathname;
                 
-                
-                var MiId= window.location.pathname;
-                console.log(MiId);
-	            getData('#prueba2','/api'+MiId,{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
-	        });
+	            	getData('#prueba2','/api'+MiId,{'consulta':consulta,'page':1,"_token": "{{ csrf_token() }}"});
+	       		});
 
 		        $(document).on('click','.resetFiltro',function(e){
                      var MiId= window.location.pathname;
 		            e.preventDefault();
 		            getData('#prueba2','/api'+MiId,{'consulta':"",'page':1,"_token": "{{ csrf_token() }}"});
-		        });
+				});
+				
+				$(document).on('click','.saveForm',function(e){
+					e.preventDefault();
+					var form = $('#form');
+					var MiId= window.location.pathname;
+					console.log('/cliente/guardarCambios' + MiId)
+					//getData('#prueba2','/cliente/guardarCambios'+MiId,{'form':form,"_token": "{{ csrf_token() }}"});
+				})
+
     		});
 
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;

@@ -37,7 +37,7 @@
             }
         }
     }
-    var boton = $("<button>").attr('onclick','validarFormulario();return false;').text("Guardar cambios");
+    var boton = $("<button>").attr({class:'saveForm'}).text("Guardar cambios");
     $(form).append(boton);
     $("#formulario").append(form);
 }

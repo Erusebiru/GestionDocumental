@@ -41,7 +41,7 @@ class ClientesController extends Controller
                 $venta = Venta::select('Id','Fecha_venta','Estado')->where('Cliente',$id)->paginate(5);
             }
             $cliente = Cliente::where('Id',$id)->get(['Id','Nombre','Email','NIF_CIF','Telefono','Direccion','Localidad','CP','Provincia']);
-            
+
             if ($request->ajax()) {
                 return ($venta);
                 
@@ -78,15 +78,16 @@ class ClientesController extends Controller
     public function guardarCambios(Request $request, $id){
         try{
             Cliente::where('Id',$id)
-            ->update([
-            'Nombre' => $request->input('Nombre'),
-            'Email' => $request->input('Email',false),
-            'NIF_CIF' => $request->input('NIF_CIF',false),
-            'Telefono' => (int)$request->input('Telefono',false),
-            'Direccion' => $request->input('Direccion'),
-            'Localidad' => $request->input('Localidad'),
-            'CP' => (int)$request->input('CP'),
-            'Provincia' => $request->input('Provincia')]);
+                ->update([
+                    'Nombre' => $request->input('Nombre'),
+                    'Email' => $request->input('Email',false),
+                    'NIF_CIF' => $request->input('NIF_CIF',false),
+                    'Telefono' => (int)$request->input('Telefono',false),
+                    'Direccion' => $request->input('Direccion'),
+                    'Localidad' => $request->input('Localidad'),
+                    'CP' => (int)$request->input('CP'),
+                    'Provincia' => $request->input('Provincia')
+                ]);
             return redirect()->back();
         }
         catch(Exception $e){
