@@ -4,9 +4,6 @@
 <div id="prueba"></div>
 
 <script>
-
-    //$('#prueba').text(Math.random(1,20));
-
     $(document).ready(function() {
         $(document).on('click','.pagination a',function(e) {
             e.preventDefault();
@@ -34,7 +31,6 @@
         var clientes = {!! json_encode($clientes, JSON_HEX_TAG) !!} ;
         generarTablas("#usuarios",clientes.data,"/cliente/");
         createPaginationLinks(clientes);
-
     });
 
 </script>

@@ -45,6 +45,25 @@ function createPaginationLinks(data){
     }
 }
 
+function UpdateData(target,url,data) {
+    $.ajax({
+        url : url,
+        data: data,
+        method:'POST',
+        beforeSend: function(){
+            $('.updated').remove();
+            $('<div class="loader"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>').appendTo(target);
+        },
+        success: function(result){
+            $('.loader').remove();
+            $('<span>').attr({'class':'updated'}).text('Cambios guardados correctamente').appendTo(target);
+        },
+        error: function(result){
+            generarErrores("Error de servidor");
+        }
+    });
+}
+
 function getData(target,url,data) {
     $.ajax({
         url : url,
@@ -65,3 +84,5 @@ function getData(target,url,data) {
         }
     });
 }
+
+

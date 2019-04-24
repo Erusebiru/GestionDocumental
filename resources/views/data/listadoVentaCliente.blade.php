@@ -25,16 +25,17 @@
                      var MiId= window.location.pathname;
 		            e.preventDefault();
 		            getData('#prueba2','/api'+MiId,{'consulta':"",'page':1,"_token": "{{ csrf_token() }}"});
-				});
-				
-				$(document).on('click','.saveForm',function(e){
-					e.preventDefault();
-					var form = $('#form');
-					var MiId= window.location.pathname;
-					console.log('/cliente/guardarCambios' + MiId)
-					//getData('#prueba2','/cliente/guardarCambios'+MiId,{'form':form,"_token": "{{ csrf_token() }}"});
-				})
+		        });
 
+            	$('#form').on('submit',function(e){
+					e.preventDefault();
+					if (validarCliente()){
+						var MiId=window.location.pathname;
+						var form = $('#form');
+						
+						UpdateData('#formulario','/api/update'+MiId,$('#form').serialize() );
+					}
+				});
     		});
 
             var cliente = {!! json_encode($cliente->toArray(), JSON_HEX_TAG) !!}[0] ;
